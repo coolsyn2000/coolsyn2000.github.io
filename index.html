@@ -1,23 +1,910 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
 
-{% block title %}{{ config.title }}{% if theme.index_with_subtitle and config.subtitle %} - {{config.subtitle }}{% endif %}{% endblock %}
 
-{% block page_class %}
-  {% if is_home() %}page-home{% endif -%}
-{% endblock %}
 
-{% block content %}
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://example.com/"/>
+
+
+
+
+
+  <title>Hexo</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
   <section id="posts" class="posts-expand">
-    {% for post in page.posts %}
-      {{ post_template.render(post, true) }}
-    {% endfor %}
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/12/02/Fast-Fourier-Transform/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2022/12/02/Fast-Fourier-Transform/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2022-12-02T01:17:26+08:00">
+                2022-12-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>mathjax: true</p>
+<h1 id="Fast-Fourier-Transform"><a href="#Fast-Fourier-Transform" class="headerlink" title="Fast Fourier Transform"></a>Fast Fourier Transform</h1><h2 id="傅里叶变换"><a href="#傅里叶变换" class="headerlink" title="傅里叶变换"></a>傅里叶变换</h2><p>连续时域的傅里叶变换<br>$$<br>FT(f)&#x3D;\int_{-\infin}^{+\infin}f(t)e^{-j2\pi ft}dt<br>$$</p>
+<h2 id="离散傅里叶变换"><a href="#离散傅里叶变换" class="headerlink" title="离散傅里叶变换"></a>离散傅里叶变换</h2><p>采样周期$T_s$，采样次数$N$</p>
+<p>在一个周期内，离散信号表达为<br>$$<br>x_s(t)&#x3D;\sum^{N-1}<em>{n&#x3D;0}x(t)\delta(t-nT_s)<br>$$<br>离散信号的傅里叶级数<br>$$<br>X(K\omega_0)&#x3D;\frac{1}{T_0}\int_0^T(\sum</em>{n&#x3D;0}^{N-1}x(t)\delta(t-nT_s))e^{-jkw_0t}dt\<br>X(k\omega_0)&#x3D;\frac{1}{T_0}\sum_{N-1}^{n&#x3D;0}x(nTs)e^{-j\omega_0nT_s}<br>$$<br>令$X[k]&#x3D;X(k\omega_0)Ts,\quad x[n]&#x3D;x(nT_s)$<br>$$<br>X[k]&#x3D;\frac{1}{N}\sum^{N-1}_{n&#x3D;0}x[n]e^{-j\frac{2\pi}{N}kn}<br>$$<br>DFT算法复杂度$O(N^2)$，若当N&#x3D;1024时，做一个DFT需要1048576次复数乘法。</p>
+<p><img src="https://s2.loli.net/2022/11/12/MC8rRnFHycKZ2tE.png"></p>
+<h2 id="快速傅里叶变换"><a href="#快速傅里叶变换" class="headerlink" title="快速傅里叶变换"></a>快速傅里叶变换</h2><p>当n为偶数时<br>$$<br>e^{-j\frac{2\pi}{N}2nk}&#x3D;e^{-j\frac{2\pi n}{N&#x2F;2}k}&#x3D;e^{-j\frac{2\pi n}{N&#x2F;2}(k+N&#x2F;2)}<br>$$<br>令$W[n,k]&#x3D;e^{-j\frac{2\pi}{N}nk}$，n为偶数时，$W[n,k]&#x3D;W[n,k+N&#x2F;2]$<br>$$<br>X[k]&#x3D;\sum_{n&#x3D;0}^{N&#x2F;2-1}x[2n]e^{-j\frac{2\pi}{N}2nk}+\sum_{n&#x3D;0}^{N&#x2F;2-1}x[2n+1]e^{-j\frac{2\pi}{N}(2n+1)k}\<br>&#x3D;\sum_{n&#x3D;0}^{N&#x2F;2-1}x[2n]e^{-j\frac{2\pi}{N}2nk}+e^{-j\frac{2\pi}{N}k}\sum_{n&#x3D;0}^{N&#x2F;2-1}x[2n+1]e^{-j\frac{2\pi}{N}(2n)k}\<br>&#x3D;\sum_{n&#x3D;0}^{N&#x2F;2-1}x[2n]e^{-j\frac{2\pi}{N&#x2F;2}nk}+e^{-j\frac{2\pi}{N}k}\sum_{n&#x3D;0}^{N&#x2F;2-1}x[2n+1]e^{-j\frac{2\pi}{N&#x2F;2}nk}\<br>&#x3D;\sum_{n&#x3D;0}^{N&#x2F;2-1}x[2n]W[2n,k]+e^{-j\frac{2\pi}{N}k}\sum_{n&#x3D;0}^{N&#x2F;2-1}x[2n+1]W[2n,k]<br>$$<br>提取$e^{-j\frac{2\pi}{N}k}$后的部分为奇数部分为$O[k]$。设偶数部分为$E[k]$<br>$$<br>X[k]&#x3D;E[k]+W[1,k]O[k]<br>$$<br>在n为偶数时，$W[n,k]$存在周期性，所以有$W[2n,k]&#x3D;W[2n,k+N&#x2F;2]$，即<br>$$<br>E[k]&#x3D;E[k+N&#x2F;2],\quad O[k]&#x3D;O[k+N&#x2F;2]<br>$$<br>又有$W[1,k]&#x3D;-W[1,k+N&#x2F;2]$，得出<br>$$<br>X[k+N&#x2F;2]&#x3D;E[k]-W[1,k]O[k]<br>$$<br>以N&#x3D;8为例子进行计算<br>$$<br>k&#x3D;0：X[0]&#x3D;E[0]+W[1,0]O[0],\quad X[4]&#x3D;E[4]+W[1,4]O[4]\<br>X[4]&#x3D;X[0+N&#x2F;2]&#x3D;E[0]-W[1,0]O[0]<br>$$<br>也就是说若想求得$X[k+N&#x2F;2]$，只用求得$E[k]$和$O[k]$。</p>
+<h2 id="FFT的递归思想"><a href="#FFT的递归思想" class="headerlink" title="FFT的递归思想"></a>FFT的递归思想</h2><p>以$N&#x3D;8$的采样为例，计算傅里叶变换时，若使用DFT的方法，对于任意$X[k]$需要进行8次乘法运算和8-1次加法运算，所以整个DFT需要进行64次乘法运算和56次加法运算。所以可以初步得出算法复杂度为$O(N^2)$。</p>
+<p>从上面的推导的FFT的对称性可以发现，一次$N&#x3D;8$的DFT可以通过分奇偶分解成两个$N&#x3D;4$的DFT变换。</p>
+<p><img src="https://pic3.zhimg.com/80/a354108a63305d9fcf6679b0d430bf7f_720w.jpg?source=1940ef5c"></p>
+<p>$N&#x3D;4$并非能够分解的极限，仍然可以将这两个$N&#x3D;4$的DFT分解成四个$N&#x3D;2$的DFT变换。$N&#x3D;2$的DFT也可以继续分解直至DFT的采样点数N为奇数。</p>
+<p><img src="https://pic2.zhimg.com/80/d1b4ef0bb03d1c748f667a6b9faf7fca_720w.jpg?source=1940ef5c"></p>
+<p><img src="https://picx.zhimg.com/80/d0721bcc5ab313379feb2f0231cd1b76_720w.jpg?source=1940ef5c"></p>
+<p>由于FFT过程中包含了递归的思想，我们也可以计算FFT的时间复杂度。每次分解DFT的采样点数N都变成原来的一半，并外加上N-1次加法。<br>$$<br>T(N)&#x3D;2T(N&#x2F;2)+N-1\<br>&#x3D;2(2T(N&#x2F;4)+N&#x2F;2-1)+N-1\<br>\cdots\<br>&#x3D;2^{log_2N}T(1)+Nlog_2N-N&#x3D;Nlog_2N+N(log_2N-1)<br>$$<br>所以$Nlog_2N$次加法，$N(log_2N-1)$次乘法，可以简化为$T(N)&#x3D;Nlog_2N$</p>
+<h2 id="非2基的FFT"><a href="#非2基的FFT" class="headerlink" title="非2基的FFT"></a>非2基的FFT</h2><p>用MATLAB做FFT并不要求数据点个数必须为以2为基数的整数次方。之所以很多资料上说控制数据点数为以2为基数的整数次方，是因为这样就能采用以2为基的FFT算法，提升运算性能。</p>
+<p>如果数据点数不是以2为基数的整数次方，处理方法有两种，一种是在原始数据开头或末尾补零，即将数据补到以2为基数的整数次方，这是“补零”的一个用处；第二种是采用以任意数为基数的FFT算法。</p>
+<p>而MATLAB的<code>fft()</code>函数在参数 N 正好就是数据x的长度，但又不是以2为基数的整数次方时，并不会采用补零的方法，而是采用以任意数为基数的FFT算法，这样也能得到很好的结果，只不过速度要稍稍慢了一些，但一般的计算量是体现不出来的。</p>
+<h3 id="补零"><a href="#补零" class="headerlink" title="补零"></a>补零</h3><p>通过补零的方式可以使采样数据点个数变成2的n次幂整数。而且这种方式并不会影响增加真实频率的分辨率。也可以认为，时域上的补零相当于频域上的插值。真实的波形分辨率仅与原始数据的时间长度有关。<br>$$<br>\Delta R_w&#x3D;\frac{1}{T}<br>$$<br>但是补零会提高视觉分辨率或者叫FFT分辨率，其由采样频率和参与FFT的数据点数决定。<br>$$<br>\Delta R_{fft}&#x3D;\frac{F_s}{N_{fft}}<br>$$</p>
+<h3 id="任意基数FFT"><a href="#任意基数FFT" class="headerlink" title="任意基数FFT"></a>任意基数FFT</h3><p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Cooley%E2%80%93Tukey_FFT_algorithm">Wikipedia</a></p>
+<p>DFT公式：<br>$$<br>X[k]&#x3D;\frac{1}{N}\sum^{N-1}<em>{n&#x3D;0}x[n]e^{-j\frac{2\pi}{N}kn}<br>$$<br>令$k&#x3D;N_2k_1+k_2,k\in[0,N_1-1],k_2\in[0,N_2-1]$和$n&#x3D;N_1n_2+n_1,n_1\in[0,N_1-1],n_2\in[0,N_2-1]$<br>$$<br>X</em>{N_2k_1+k_2}&#x3D;\sum_{n_1&#x3D;0}^{N_1-1}(e^{-j\frac{2\pi}{N_1N_2}n_1k_2})(\sum_{n_2&#x3D;0}^{N_2-1}x_{N_1n_2+n_1}e^{-j\frac{2\pi}{N_2}n_2k_2})e^{-j\frac{2\pi}{N_1}n_1k_1}<br>$$<br>具体做法是将原始信号重新排列再进行计算。步骤如下</p>
+<ol>
+<li>将信号按列存储为一个矩阵</li>
+<li>对每行计算 $N_2$点 DFT</li>
+<li>将矩阵每一项乘以旋转因子$e^{-j\frac{2\pi}{N}n_1n_2}$</li>
+<li>对每列计算$N_1$点 DFT</li>
+<li>将结果数组按行读出</li>
+</ol>
+<p>上述混合基的FFT变换仅适用于合数，而对于质数个数的采样算法可以使用雷德算法。</p>
+<h2 id="二维傅里叶变换"><a href="#二维傅里叶变换" class="headerlink" title="二维傅里叶变换"></a>二维傅里叶变换</h2><p>二维傅里叶变换可由一维变换来理解<br>$$<br>FT(f(x,y))&#x3D;\int_{-\infin}^{+\infin}e^{-j2\pi vy}dy\int_{-\infin}^{+\infin}e^{-j2\pi ux}dx\<br>&#x3D;\int_{-\infin}^{+\infin}F(u,y)e^{-i2\pi vy}dy&#x3D;F(u,v)<br>$$<br>二维傅里叶变换具可分离性，即它可分离成两次一维傅里叶变换。如在MATLAB中，二维快速傅里叶变换的函数为$Y&#x3D;fft2(X)$，这等同于$Y&#x3D;fft(fft(X))$，即两次一维的fft。</p>
+<p>二维离散傅里叶变换公式(2D_DTFT)：<br>$$<br>F(u,v)&#x3D;\sum_{0}^{M-1}\sum_{0}^{N-1}f(x,y)e^{-j2\pi(ux&#x2F;M+vy&#x2F;N)}<br>$$<br>二维快速傅里叶变换算法：用两次一维FFT的变换即可。先对二维矩阵的每一列进行FFT变换，生成一个列为一维傅里叶系数的二维矩阵。然后对这个矩阵的每一行做FFT变换，就获得了二维的傅里叶变换的系数矩阵。此时零频率分在图像的四角上，高频分量在图像中间，一般做<code>fftshift</code>将零频分量移到图像中心便于观察。</p>
+<p><img src="https://pic2.zhimg.com/80/v2-4442cbab6df1da651d61e88bda050f17_720w.jpg?source=1940ef5c"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/12/02/article-title/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2022/12/02/article-title/" itemprop="url">article title</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2022-12-02T01:13:37+08:00">
+                2022-12-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/12/02/hello-world/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2022/12/02/hello-world/" itemprop="url">Hello World</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2022-12-02T01:05:40+08:00">
+                2022-12-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
-  {% include '_partials/pagination.swig' %}
-{% endblock %}
+  
 
-{% block sidebar %}
-  {{ sidebar_template.render(false) }}
-{% endblock %}
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
