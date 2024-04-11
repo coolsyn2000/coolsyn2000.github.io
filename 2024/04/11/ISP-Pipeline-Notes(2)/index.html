@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>ISP-Pipeline-Notes(2) - Hexo</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Hexo"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Hexo"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="NR 降噪噪声产生的原因人类的世界就是一个信号传输的世界，所以噪声无处不在，图像作为一种信号传输的方式当然也无法幸免。为了尽量减少噪声对图像质量的影响，还原物体的本来状态就提出了一系列降噪的方法，本文就简单介绍几种常见的降噪滤波算法。"><meta property="og:type" content="blog"><meta property="og:title" content="ISP-Pipeline-Notes(2)"><meta property="og:url" content="http://coolsyn.top/2024/04/11/ISP-Pipeline-Notes(2)/"><meta property="og:site_name" content="Hexo"><meta property="og:description" content="NR 降噪噪声产生的原因人类的世界就是一个信号传输的世界，所以噪声无处不在，图像作为一种信号传输的方式当然也无法幸免。为了尽量减少噪声对图像质量的影响，还原物体的本来状态就提出了一系列降噪的方法，本文就简单介绍几种常见的降噪滤波算法。"><meta property="og:locale" content="en_US"><meta property="og:image" content="http://coolsyn.top/gallery/covers/camera_midjounery.png"><meta property="article:published_time" content="2024-04-11T02:32:52.000Z"><meta property="article:modified_time" content="2024-04-11T08:09:04.003Z"><meta property="article:author" content="Coolsyn"><meta property="article:tag" content="Notes"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="http://coolsyn.top/gallery/covers/camera_midjounery.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://coolsyn.top/2024/04/11/ISP-Pipeline-Notes(2)/"},"headline":"ISP-Pipeline-Notes(2)","image":["http://coolsyn.top/gallery/covers/camera_midjounery.png"],"datePublished":"2024-04-11T02:32:52.000Z","dateModified":"2024-04-11T08:09:04.003Z","author":{"@type":"Person","name":"Coolsyn"},"publisher":{"@type":"Organization","name":"Hexo","logo":{"@type":"ImageObject","url":"http://coolsyn.top/img/logo.svg"}},"description":"NR 降噪噪声产生的原因人类的世界就是一个信号传输的世界，所以噪声无处不在，图像作为一种信号传输的方式当然也无法幸免。为了尽量减少噪声对图像质量的影响，还原物体的本来状态就提出了一系列降噪的方法，本文就简单介绍几种常见的降噪滤波算法。"}</script><link rel="canonical" href="http://coolsyn.top/2024/04/11/ISP-Pipeline-Notes(2)/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Hexo" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/coolsyn2000"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-image"><span class="image is-7by3"><img class="fill" src="/gallery/covers/camera_midjounery.png" alt="ISP-Pipeline-Notes(2)"></span></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2024-04-11T02:32:52.000Z" title="2024/4/11 10:32:52">2024-04-11</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-04-11T08:09:04.003Z" title="2024/4/11 16:09:04">2024-04-11</time></span><span class="level-item"><a class="link-muted" href="/categories/ISP/">ISP</a></span><span class="level-item">25 minutes read (About 3787 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">ISP-Pipeline-Notes(2)</h1><div class="content"><h2 id="NR-降噪"><a href="#NR-降噪" class="headerlink" title="NR 降噪"></a>NR 降噪</h2><h3 id="噪声产生的原因"><a href="#噪声产生的原因" class="headerlink" title="噪声产生的原因"></a>噪声产生的原因</h3><p>人类的世界就是一个信号传输的世界，所以噪声无处不在，图像作为一种信号传输的方式当然也无法幸免。为了尽量减少噪声对图像质量的影响，还原物体的本来状态就提出了一系列降噪的方法，本文就简单介绍几种常见的降噪滤波算法。</p>
+<img src="https://pic2.zhimg.com/80/v2-1a601b40a5cf698b408b31f8302c56a1_1440w.webp" alt ="图像去噪" width="500">
+<span id="more"></span>
+
+<h3 id="图像噪声校正方法"><a href="#图像噪声校正方法" class="headerlink" title="图像噪声校正方法"></a>图像噪声校正方法</h3><img src="https://pic2.zhimg.com/80/v2-9e9707aa932236d3f8147c5a107699d1_1440w.webp" alt ="去噪方法" width="500">
+
+<ul>
+<li>均值滤波</li>
+<li>高斯滤波</li>
+<li>双边滤波</li>
+<li>中值滤波</li>
+<li>BM3D</li>
+<li>NLM</li>
+</ul>
+<h2 id="AAF-抗混滤波"><a href="#AAF-抗混滤波" class="headerlink" title="AAF 抗混滤波"></a>AAF 抗混滤波</h2><h3 id="混叠产生的原因"><a href="#混叠产生的原因" class="headerlink" title="混叠产生的原因"></a>混叠产生的原因</h3><p>由于无法对一个函数无限地取样，因此在数字图像中总是会出现混叠。</p>
+<p>混叠分为空间混叠和时间混叠。空间混叠是由欠取样造成的，在陌生重复的图像中较为明显。时间混叠与动态图像序列中图像的时间间隔相关，如辐条倒转的“车轮效应”。</p>
+<p>空间混叠的主要问题是会引入伪影，即原始图像中未出现的线条锯齿、虚假高光和频率模式。</p>
+<p>对图像进行缩放都会引入混叠。图像放大可以视为过取样，使用双线性、双三次内插可以降低图像放大中的混叠。图像缩小可以视为欠取样，混叠通常更为严重。</p>
+<h3 id="抗混滤波器"><a href="#抗混滤波器" class="headerlink" title="抗混滤波器"></a>抗混滤波器</h3><p>为了降低混叠，在重取样前要使用<strong>低通滤波器</strong>来平滑，以衰减图像的高频分量，可以有效地抑制混叠，但图像的清晰度也有所下降。</p>
+<p><img src="https://picx.zhimg.com/80/32eb89f0b235066796ef77193bc4eef7_1440w.webp?source=1940ef5c" alt="抗混滤波"></p>
+<p>原图（并未给出）是一张黑白格，图(a)是直接降采样后的结果。可以看到，远处的黑白格产生了谜一般的花纹，这就是混叠现象的表现。究其原因，是因为远处的每个格子的大小小于1个像素，远处的图像相当于每隔几个格子随便取了一个格子的颜色。</p>
+<p>混叠现象产生的原因是原图信息的空间频率太高，缩小后图像的分辨率无法表示这么高频的信息。所谓的“抗混叠”，就是在降采样之前先对原图进行低通滤波，把高频信息滤掉。</p>
+<p>图(b)和图(c)是采用了两种不同的低通滤波器后，再进行降采样的结果，可以看到远处的谜之花纹消失了，变成了灰色。变成灰色是因为低通滤波的效果其实就是模糊。抗混叠还有另外一个效果，就是近处的格子边缘也变得更加平滑了。</p>
+<h2 id="AWB-自动白平衡"><a href="#AWB-自动白平衡" class="headerlink" title="AWB 自动白平衡"></a>AWB 自动白平衡</h2><p><img src="https://s2.loli.net/2024/04/10/Au1f3XwVhnNojEc.png" alt="（左）24色卡在低色温下白平衡校正前效果；（右）白平衡校正后效果"></p>
+<h3 id="白平衡的原因"><a href="#白平衡的原因" class="headerlink" title="白平衡的原因"></a>白平衡的原因</h3><p>人眼具有颜色恒常性，可以避免光源变化带来的颜色变化，但是图像传感器不具备这种特性，从而造成色偏，白平衡就是需要校正这个颜色的偏差；</p>
+<ul>
+<li><p>颜色恒常性：颜色恒常是指在照度发生变化的条件下人们对物体表面颜色的知觉趋于稳定的心理倾向；</p>
+</li>
+<li><p>色温的定义：色温描述的是具有一定表面温度的“黑体”(blackbody)的辐射光的光谱特性。简单的理解就是颜色随温度的变化规律，比如生铁就是黑色，加热会变成橘红色，继续加热到液态会呈现偏白的颜色，这种随温度而产生的颜色变化的光谱特性。</p>
+<img src="https://sw.cool3c.com/user/100672/2020/98a7f9e5-5735-4489-9bfa-0498914c872b.jpg?fit=max&w=2400&q=80" alt="色温变化表。色温从低到高，颜色从橘红到白色再到蓝色"  /></li>
+</ul>
+<h3 id="自动白平衡算法"><a href="#自动白平衡算法" class="headerlink" title="自动白平衡算法"></a>自动白平衡算法</h3><ul>
+<li><p><strong>灰度世界:</strong></p>
+<p>灰度世界算法基于一个假说：任一幅图像,当它有足够的色彩变化,则它的RGB分量的均值会趋于相等。这是一个在自动白平衡方面应用极为广泛的理论。如上图一个颜色足够充足的画面里，假说RGB三个通道的均值是相同的。</p>
+<p>对此算法的流程如下：</p>
+<ol>
+<li>计算各个颜色通道的平均值；</li>
+<li>寻找一个参考值K，一般情况选取Gmean;</li>
+<li>计算Rgain &#x3D; Gmean&#x2F;Rmean, Bgain &#x3D; Gmean&#x2F;Bmean;</li>
+<li>对图像中的每个像素都乘以对应的gain值进行校正;</li>
+</ol>
+</li>
+<li><p><strong>完美反射:</strong></p>
+<p>完全反射也是基于一个假说：基于这样一种假设，一幅图像中最亮的像素相当于物体有光泽或镜面上的点，它传达了很多关于场景照明条件的信息。如果景物中有纯白的部分，那么就可以直接从这些像素中提取出光源信息。因为镜面或有光泽的平面本身不吸收光线，所以其反射的颜色即为光源的真实颜色，这是因为镜面或有光泽的平面的反射比函数在很长的一段波长范围内是保持不变的。完美反射法就是利用用这种特性来对图像进行调整。算法执行时，检测图像中亮度最高的像素并且将它作为参考白点。基于这种思想的方法都被称为是完美反射法，也称镜面法。通俗的意思就是整个图像中最亮的点就是白色或者镜面反射出来的，那么最亮的点就是光源的属性，但是该点本身应该是白点，以此为基础就可计算出gain值从而进行校正。</p>
+<p>此算法具体流程如下：</p>
+<ol>
+<li><p>分别计算图像中R，G，B三个通道的最大值得到R_max, G_max, B_max; 或者找到图像中R+G+B值最大的点作为白点，这个白点的R，G，B分量作为R_max, G_max, B_max;</p>
+</li>
+<li><p>$$<br>\begin{cases}<br>Gain_R&#x3D;Max(R_{max}, G_{max}, B_{max})&#x2F;R_{max} \\<br>Gain_G&#x3D;Max(R_{max}, G_{max}, B_{max})&#x2F;G_{max} \\<br>Gain_B&#x3D;Max(R_{max}, G_{max}, B_{max})&#x2F;B_{max}<br>\end{cases}<br>$$</p>
+</li>
+<li><p>$$<br>R’&#x3D;<br>\begin{cases}<br>R*Gain_R, &amp; R’\leq255\\<br>255,&amp; R’&gt;255<br>\end{cases}<br>$$</p>
+<p>$$<br>G’&#x3D;<br>\begin{cases}<br>G*Gain_G, &amp; G’\leq255\\<br>255,&amp; G’&gt;255<br> \end{cases}<br>$$</p>
+<p>$$<br>B’&#x3D;<br> \begin{cases}<br>B*Gain_B, &amp; B’\leq255\\<br>255,&amp; B’&gt;255<br>\end{cases}<br>$$</p>
+</li>
+</ol>
+</li>
+<li><p><strong>GW和PR正交组合算法（QCGP）：</strong></p>
+<p>算法流程如下：</p>
+<ol>
+<li><p>定义一个二元方程组<br>$$<br>\begin{cases}<br>u\cdot R_{mean}^2+v\cdot R_{mean}&#x3D;K_{mean}\\<br>u\cdot R_{max}^2+v\cdot R_{max}&#x3D;K_{max}<br>\end{cases}<br>$$<br>其中<br>$$<br>\begin{cases}<br>K_{mean}&#x3D;(R_{mean}+G_{mean}+B_{mean})\\<br>K_{max}&#x3D;(R_{max}+G_{max}+B_{max})<br>\end{cases}<br>$$</p>
+</li>
+<li><p>根据二元方程组求解出$u, v$</p>
+</li>
+<li><p>根据求解出的$u, v$校正颜色通道<br>$$<br>\begin{cases}<br>R’&#x3D;u\cdot R^2+v\cdot R \\<br>G’&#x3D;u\cdot G^2+v\cdot G \\<br>B’&#x3D;u\cdot B^2+v\cdot B<br>\end{cases}<br>$$</p>
+</li>
+</ol>
+</li>
+<li><p><strong>基于模糊逻辑的算法</strong></p>
+<img src="https://pic4.zhimg.com/80/v2-9ff004d9c2d519338a10bfedf3b83f57_1440w.webp" alt="分块AWB" style="zoom:67%;" />
+
+<p>通过以上两种方式将图像分成8块，然后通过模糊逻辑的方式计算出每个快的一个权重，这个权重和亮度和色度相关，然后通过模糊逻辑方式进行确定。求得权重后就可以计算出整个图像的加权均值，如下图，黑点表示八个块的分布，X表示加权后整个图像的位置。然后目的是要让加权的这个值往白点上靠，就通过调整增益的方式调试，调整完增益后，每个块儿的均值又会发生变化，然后又重新计算出每个块的权重，再通过权重计算出整个图像的均值，整个图像的均值已经靠近原点了。然后如果X和白点的差距在一个设定的范围内则认为完成白平衡，否则继续调整增益重复上述步骤进行校正。</p>
+<img src="https://pic4.zhimg.com/80/v2-cbc5d8b2b2e3ad8a48bf3ee0028f64f7_1440w.webp" alt="AWB校正" style="zoom: 67%;" />
+</li>
+<li><p><strong>基于色温的白平衡</strong></p>
+<ol>
+<li>通过在不同色温的环境下拍摄灰卡可以得到上面的两个曲线，一个是gain值的关系曲线，另一个是R&#x2F;G与色温T的关系，那么如果获取了一张图像知道了拍摄的色温，就可以通过第二张图获取R&#x2F;G的值，然后将这个值代回图一就能计算出B&#x2F;G从而获得R和B的gain值;</li>
+<li>通过一定的技术手段获取色温即可，一种方法就是通过加一个色温传感器获取环境色温，这个努比亚和oppo都有相关的专利提到，这个不是常规的方式不讲解。另一种就是通过计算求出T，下面的论文就提供了一种方式。</li>
+</ol>
+</li>
+<li><p><strong>基于边缘的方法</strong></p>
+<ol>
+<li>先通过一定的手段，比如梯度的方式求出图像中的边缘，然后在边缘各侧各取两个点参与计算；</li>
+<li>通过上述得到的参考点集合，就可以运行灰度世界或者其他的算法求出gain值；</li>
+</ol>
+<p>该算法的有点在于，减少的大色块的干扰，因为一般认为边缘就是色块变化的的分界线，那么提取边缘两侧的样本点就可以满足颜色充分的条件，那么就可以运用灰度世界法求出gain.而且有大色块的时候计算的也是也只是选取边缘的几个点，就可以避免大色块分量太大造成白平衡异常的问题。</p>
+</li>
+</ul>
+<h2 id="Demosiac-去马赛克"><a href="#Demosiac-去马赛克" class="headerlink" title="Demosiac 去马赛克"></a>Demosiac 去马赛克</h2><p><img src="https://s2.loli.net/2024/04/10/7TsjAQ6kwihu3Fq.png" alt="Bayer滤镜CMOS结构"></p>
+<h3 id="Demosaic-原因"><a href="#Demosaic-原因" class="headerlink" title="Demosaic 原因"></a>Demosaic 原因</h3><p>柯达公司的科学家Bryce Bayer（1929-2012）发明了一个突破性的解决方案。这个方案不需要使用昂贵的光学棱镜，也不需要使用3个CCD阵列，只需要在一个CCD阵列上制造三种不同的滤光膜，构成一个滤光膜阵列（Color Filter Array，CFA），就形成一个廉价而高效的解决方案。这种方式就是在感光器件上面通过交替的滤光透镜过滤出三中颜色分量形成如图的RGB三色交替的图像。后期再通过一定的算法通过周边的颜色恢复出确实的颜色，最终形成RGB的颜色，这种后期的处理方式就是本文讨论的重点，一般称作去马赛克算法（demosaicing）。</p>
+<h3 id="Demosaic算法"><a href="#Demosaic算法" class="headerlink" title="Demosaic算法"></a>Demosaic算法</h3><ul>
+<li><p>最近邻插值</p>
+</li>
+<li><p>双线性插值</p>
+</li>
+<li><p>双三线性插值</p>
+</li>
+<li><p>高质量线性插值 Malvar-He-Cutler</p>
+<img src="https://d3i71xaburhd42.cloudfront.net/adf475297b78884f290169f0722636a52e3da3fd/4-Figure3-1.png" alt="Malvar-He-Cutler插值" style="zoom:50%;" />
+
+<p>插值算法原理是基于谱相关。该方法由Malvar等人提出。高质量插值背后的想法是，要对每个通道中的丢失像素进行插值，仅使用位于同一通道上的相邻像素可能并不准确。换句话说，为了内插图2中的Gx等绿色像素，我们需要使用其相邻绿色像素的值以及现有通道的值。例如，如果在Gx的位置有一个红色值，则必须使用该值以及相邻的可用绿色值。他们称其为方法梯度校正插值。</p>
+<p>最后，他们提出了8种不同的5 * 5滤镜，如图所示。我们需要将滤镜卷积为要插值的像素。</p>
+</li>
+<li><p>色比法和色差法</p>
+<p>色比法和色差法其实是基于两个假设实现插值的。其中色比法假设再一个邻域范围内不同颜色通道的值的比值是固定的，简单来说就说相邻像素的R&#x2F;G的值和B&#x2F;G的值是一样的，那么设计算法时就可以利用这一点。</p>
+<ol>
+<li>一般情况下都会先插值出G的缺失值，然后通过与G的比值恒定插值出其他的缺失值。</li>
+<li>然后通过R14&#x2F;G14 &#x3D; R13&#x2F;G13的假设恢复出R13。同理可以恢复出其他缺失的颜色。</li>
+</ol>
+<p>色差法和色比法类似，色差发假设在一个邻域内不同通道的颜色插值时恒定的。只是将色比法的比值转换为差值即可。</p>
+</li>
+</ul>
+<h2 id="CCM-颜色校正"><a href="#CCM-颜色校正" class="headerlink" title="CCM 颜色校正"></a>CCM 颜色校正</h2><h3 id="CCM的原因"><a href="#CCM的原因" class="headerlink" title="CCM的原因"></a>CCM的原因</h3><p>就一张好的彩色照片而言，不仅需要Demosaic、AWB、CCM、Gamma、降噪、锐化等众多ISP模块的处理，还会存在人为调优处理，例如美颜、磨皮、个性色调整等。在整个ISP处理流程中，影响颜色的模块有很多，但我们可以将影响颜色的主要部分简单地抽象为如下的数学模型。</p>
+<div>
+\begin{equation}
+\begin{bmatrix}
+  R\\ 
+  G\\
+  B
+\end{bmatrix}_{\text{out}} =
+\left(
+\begin{bmatrix}   
+  a_{00} & a_{01} & a_{02}\\
+  a_{10} & a_{11} & a_{12}\\
+  a_{20} & a_{21} & a_{22}
+\end{bmatrix}
+\begin{bmatrix}  
+  r_{b} & 0 & 0\\
+  0 & g_{wb} & 0\\
+  0 & 0 & b_{wb}
+\end{bmatrix}
+\begin{bmatrix}  
+  R\\
+  G\\
+  B
+\end{bmatrix}
+\right)^{\gamma}
+\end{equation}
+</div>
+
+
+
+<p><img src="https://pic4.zhimg.com/80/v2-a0a13dd5fedd983c69888f6a8f9d4247_1440w.webp" alt="24色卡CCM"></p>
+<p> 整个数学模型中涉及了WB、CCM和Gamma三个模块，这也是目前主流ISP中，会对颜色造成重要影响的三个部分。当然，现在也有许多ISP中增加了一个3D-LUT模块，用于增强个性色。此外，影响颜色的模块还有很多，比如BLC模块参数配置不正确，也会对颜色造成影响。</p>
+<h3 id="CCM算法"><a href="#CCM算法" class="headerlink" title="CCM算法"></a>CCM算法</h3><ul>
+<li><p>3DLUT</p>
+<p>颜色依照3DLUT进行查表和映射。</p>
+<p><img src="https://s2.loli.net/2024/04/11/o4hLtw2Jla3FjNk.jpg" alt="3Dlut"></p>
+</li>
+<li><p>多项式拟合</p>
+<div>
+\begin{equation} 
+  \begin{bmatrix}   
+    R\\ 
+    G\\
+    B
+  \end{bmatrix}_{\text{out}}=
+  \begin{bmatrix}   
+    a_{00}& a_{01}&a_{02}\\  
+    a_{10}&a_{11}&a_{12}\\
+    a_{20}&a_{21}&a_{22}
+  \end{bmatrix} 
+  \begin{bmatrix}   
+    R\\ 
+    G\\
+    B
+  \end{bmatrix}_{\text{in}}
+\end{equation}
+</div>
+
+<p>多项式拟合目的是优化拟合出合适的颜色映射关系，使得整体图片的$\Delta E$最小（LAB颜色空间，$\Delta E 2000$最为常用），图片通常采用专用的24色卡或者140色卡在专用光源下进行颜色校准。</p>
+<p>最常见的做法是拟合一个3x3大小的CCM矩阵，如上式所示。该优化目标函数为非线性函数，且可以加入白点约束，使得CCM矩阵每一行求和相等。同时CCM算法也可以使用其他的函数进行拟合，如3x4或者4x3的矩阵进行线性函数拟合，也可以使用根多项式含有根项$\sqrt{rg},\sqrt{rb},\sqrt{gb}$，或者其他多项式作为函数进行拟合。</p>
+<p><img src="https://www.imatest.com/wp-content/uploads/2021/07/CCM_block_diagram.png" alt="CCM算法"></p>
+</li>
+</ul>
+</div><div class="article-licensing box"><div class="licensing-title"><p>ISP-Pipeline-Notes(2)</p><p><a href="http://coolsyn.top/2024/04/11/ISP-Pipeline-Notes(2)/">http://coolsyn.top/2024/04/11/ISP-Pipeline-Notes(2)/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Coolsyn</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2024-04-11</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2024-04-11</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/Notes/">Notes</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/04/11/ISP-Pipeline-Notes(3)/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">ISP-Pipeline-Notes(3)</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/04/10/ISP-Pipeline-Notes(1)/"><span class="level-item">ISP-Pipeline-Notes(1)</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="https://s2.loli.net/2024/04/10/oLDgPcA3WGsxfEu.jpg" alt="Coolsyn"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Coolsyn</p><p class="is-size-6 is-block">Computer Vision Engineer, OPPO</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Shenzhen, China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">5</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">2</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">2</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/coolsyn2000" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/coolsyn2000"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Zhihu" href="https://www.zhihu.com/people/never-mind-80"><i class="fab fa-zhihu"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Bilibili" href="https://space.bilibili.com/261084590"><i class="fab fa-bilibili"></i></a></div></div></div><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="level is-mobile" href="#NR-降噪"><span class="level-left"><span class="level-item">1</span><span class="level-item">NR 降噪</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#噪声产生的原因"><span class="level-left"><span class="level-item">1.1</span><span class="level-item">噪声产生的原因</span></span></a></li><li><a class="level is-mobile" href="#图像噪声校正方法"><span class="level-left"><span class="level-item">1.2</span><span class="level-item">图像噪声校正方法</span></span></a></li></ul></li><li><a class="level is-mobile" href="#AAF-抗混滤波"><span class="level-left"><span class="level-item">2</span><span class="level-item">AAF 抗混滤波</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#混叠产生的原因"><span class="level-left"><span class="level-item">2.1</span><span class="level-item">混叠产生的原因</span></span></a></li><li><a class="level is-mobile" href="#抗混滤波器"><span class="level-left"><span class="level-item">2.2</span><span class="level-item">抗混滤波器</span></span></a></li></ul></li><li><a class="level is-mobile" href="#AWB-自动白平衡"><span class="level-left"><span class="level-item">3</span><span class="level-item">AWB 自动白平衡</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#白平衡的原因"><span class="level-left"><span class="level-item">3.1</span><span class="level-item">白平衡的原因</span></span></a></li><li><a class="level is-mobile" href="#自动白平衡算法"><span class="level-left"><span class="level-item">3.2</span><span class="level-item">自动白平衡算法</span></span></a></li></ul></li><li><a class="level is-mobile" href="#Demosiac-去马赛克"><span class="level-left"><span class="level-item">4</span><span class="level-item">Demosiac 去马赛克</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#Demosaic-原因"><span class="level-left"><span class="level-item">4.1</span><span class="level-item">Demosaic 原因</span></span></a></li><li><a class="level is-mobile" href="#Demosaic算法"><span class="level-left"><span class="level-item">4.2</span><span class="level-item">Demosaic算法</span></span></a></li></ul></li><li><a class="level is-mobile" href="#CCM-颜色校正"><span class="level-left"><span class="level-item">5</span><span class="level-item">CCM 颜色校正</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#CCM的原因"><span class="level-left"><span class="level-item">5.1</span><span class="level-item">CCM的原因</span></span></a></li><li><a class="level is-mobile" href="#CCM算法"><span class="level-left"><span class="level-item">5.2</span><span class="level-item">CCM算法</span></span></a></li></ul></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Icarus</span></span><span class="level-right"><span class="level-item tag">github.com</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/Campus/"><span class="level-start"><span class="level-item">Campus</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/ISP/"><span class="level-start"><span class="level-item">ISP</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><figure class="media-left"><a class="image" href="/2024/04/11/ISP-Pipeline-Notes(3)/"><img src="/gallery/covers/camera_midjounery.png" alt="ISP-Pipeline-Notes(3)"></a></figure><div class="media-content"><p class="date"><time dateTime="2024-04-11T02:37:52.000Z">2024-04-11</time></p><p class="title"><a href="/2024/04/11/ISP-Pipeline-Notes(3)/">ISP-Pipeline-Notes(3)</a></p><p class="categories"><a href="/categories/ISP/">ISP</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2024/04/11/ISP-Pipeline-Notes(2)/"><img src="/gallery/covers/camera_midjounery.png" alt="ISP-Pipeline-Notes(2)"></a></figure><div class="media-content"><p class="date"><time dateTime="2024-04-11T02:32:52.000Z">2024-04-11</time></p><p class="title"><a href="/2024/04/11/ISP-Pipeline-Notes(2)/">ISP-Pipeline-Notes(2)</a></p><p class="categories"><a href="/categories/ISP/">ISP</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2024/04/10/ISP-Pipeline-Notes(1)/"><img src="/gallery/covers/camera_midjounery.png" alt="ISP-Pipeline-Notes(1)"></a></figure><div class="media-content"><p class="date"><time dateTime="2024-04-10T14:43:52.000Z">2024-04-10</time></p><p class="title"><a href="/2024/04/10/ISP-Pipeline-Notes(1)/">ISP-Pipeline-Notes(1)</a></p><p class="categories"><a href="/categories/ISP/">ISP</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-04-10T13:10:00.000Z">2024-04-10</time></p><p class="title"><a href="/2024/04/10/%E6%A0%A1%E6%8B%9B%E5%BD%B1%E5%83%8F%E7%AE%97%E6%B3%95%E7%9F%A5%E8%AF%86%E7%82%B9%E5%A4%8D%E7%9B%98/">校招影像算法知识点复盘</a></p><p class="categories"><a href="/categories/ISP/">ISP</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-11-01T12:51:57.000Z">2023-11-01</time></p><p class="title"><a href="/2023/11/01/24%E5%B1%8A%E5%85%89%E5%AD%A6%E7%A1%95%E5%A3%AB%E7%A7%8B%E6%8B%9B%E9%9A%8F%E6%83%B3/">24届光学硕士秋招随想</a></p><p class="categories"><a href="/categories/Campus/">Campus</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2024/04/"><span class="level-start"><span class="level-item">April 2024</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/11/"><span class="level-start"><span class="level-item">November 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/Notes/"><span class="tag">Notes</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Thoughts/"><span class="tag">Thoughts</span><span class="tag">2</span></a></div></div></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="Hexo" height="28"></a><p class="is-size-7"><span>&copy; 2024 Coolsyn</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2024</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>

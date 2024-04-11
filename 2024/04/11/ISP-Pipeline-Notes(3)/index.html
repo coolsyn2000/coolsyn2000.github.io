@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>ISP-Pipeline-Notes(3) - Hexo</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Hexo"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Hexo"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="LTM 局部色调映射HDR显示显示设备的动态范围 ＜ HDR 成像结果的动态范围，对于一般的显示设备来说，HDR 成像结果仍然是高动态范围，比如说 4000：1，但一般显示设备达不到这么高的动态显示范围，可能只有 2^8&amp;#x3D;256 的动态范围，所以，需要压缩动态范围（粗略理解成对比度吧），同时要保留细节。 常用的解决办法有两类——第一类是全局的动态范围压缩方法，使用类 S 曲线，如 Rei"><meta property="og:type" content="blog"><meta property="og:title" content="ISP-Pipeline-Notes(3)"><meta property="og:url" content="http://coolsyn.top/2024/04/11/ISP-Pipeline-Notes(3)/"><meta property="og:site_name" content="Hexo"><meta property="og:description" content="LTM 局部色调映射HDR显示显示设备的动态范围 ＜ HDR 成像结果的动态范围，对于一般的显示设备来说，HDR 成像结果仍然是高动态范围，比如说 4000：1，但一般显示设备达不到这么高的动态显示范围，可能只有 2^8&amp;#x3D;256 的动态范围，所以，需要压缩动态范围（粗略理解成对比度吧），同时要保留细节。 常用的解决办法有两类——第一类是全局的动态范围压缩方法，使用类 S 曲线，如 Rei"><meta property="og:locale" content="en_US"><meta property="og:image" content="http://coolsyn.top/gallery/covers/camera_midjounery.png"><meta property="article:published_time" content="2024-04-11T02:37:52.000Z"><meta property="article:modified_time" content="2024-04-11T08:30:00.647Z"><meta property="article:author" content="Coolsyn"><meta property="article:tag" content="Notes"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="http://coolsyn.top/gallery/covers/camera_midjounery.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://coolsyn.top/2024/04/11/ISP-Pipeline-Notes(3)/"},"headline":"ISP-Pipeline-Notes(3)","image":["http://coolsyn.top/gallery/covers/camera_midjounery.png"],"datePublished":"2024-04-11T02:37:52.000Z","dateModified":"2024-04-11T08:30:00.647Z","author":{"@type":"Person","name":"Coolsyn"},"publisher":{"@type":"Organization","name":"Hexo","logo":{"@type":"ImageObject","url":"http://coolsyn.top/img/logo.svg"}},"description":"LTM 局部色调映射HDR显示显示设备的动态范围 ＜ HDR 成像结果的动态范围，对于一般的显示设备来说，HDR 成像结果仍然是高动态范围，比如说 4000：1，但一般显示设备达不到这么高的动态显示范围，可能只有 2^8&#x3D;256 的动态范围，所以，需要压缩动态范围（粗略理解成对比度吧），同时要保留细节。 常用的解决办法有两类——第一类是全局的动态范围压缩方法，使用类 S 曲线，如 Rei"}</script><link rel="canonical" href="http://coolsyn.top/2024/04/11/ISP-Pipeline-Notes(3)/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Hexo" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/coolsyn2000"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-image"><span class="image is-7by3"><img class="fill" src="/gallery/covers/camera_midjounery.png" alt="ISP-Pipeline-Notes(3)"></span></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2024-04-11T02:37:52.000Z" title="2024/4/11 10:37:52">2024-04-11</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-04-11T08:30:00.647Z" title="2024/4/11 16:30:00">2024-04-11</time></span><span class="level-item"><a class="link-muted" href="/categories/ISP/">ISP</a></span><span class="level-item">42 minutes read (About 6276 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">ISP-Pipeline-Notes(3)</h1><div class="content"><h2 id="LTM-局部色调映射"><a href="#LTM-局部色调映射" class="headerlink" title="LTM 局部色调映射"></a>LTM 局部色调映射</h2><h3 id="HDR显示"><a href="#HDR显示" class="headerlink" title="HDR显示"></a>HDR显示</h3><p>显示设备的动态范围 ＜ HDR 成像结果的动态范围，对于一般的显示设备来说，HDR 成像结果仍然是高动态范围，比如说 4000：1，但一般显示设备达不到这么高的动态显示范围，可能只有 2^8&#x3D;256 的动态范围，所以，需要压缩动态范围（粗略理解成对比度吧），同时要保留细节。</p>
+<p>常用的解决办法有两类——第一类是全局的动态范围压缩方法，使用类 S 曲线，如 Reinhard、ACES 等，像素的调整只和像素本身的灰度值有关系，这种方法速度快、直观、有效避免光晕和色调逆转，但是容易破坏图像的白平衡、局部丢失细节；第二类是局部的动态范围压缩方法，像素的调整和邻域的亮度分布有关系，局部方法可以呈现保留更多的细节，但是计算十分耗时、容易引入噪声且可能生成光晕。</p>
+<h3 id="LTM算法"><a href="#LTM算法" class="headerlink" title="LTM算法"></a>LTM算法</h3><p>经典算法之一就是源于 2002年的 《Fast Bilateral Filtering for the Display of High-Dynamic-Range Images》，基于快速双边滤波的高动态范围压缩方法。</p>
+<p>基本思路是，使用滤波等手段将 HDR 图像分解成基础层（base）和细节层（detail），对基础层做对比度压缩，压缩之后的基础层再和原来的细节层相加，得到保留了细节信息的低动态范围图像。如下图</p>
+<p><img src="https://pic3.zhimg.com/80/v2-54679eb9a3a147ae61a92bddc4ab07da_1440w.webp" alt="img"></p>
+<span id="more"></span>
+
+<h4 id="分离基础层和细节层"><a href="#分离基础层和细节层" class="headerlink" title="分离基础层和细节层"></a>分离基础层和细节层</h4><ol>
+<li>高斯滤波滤除细节得到基础层，再使用原图减去基础层得到细节层。但是这种方法容易产生光晕，可以减小高斯的模糊程度，获得更少的光晕。但是细节被压缩的太厉害了，高动态的优势没体现出来。</li>
+<li>使用双边滤波可以有效去除光晕，可以保边。</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th></th>
+<th align="center">基础层</th>
+<th>细节层</th>
+<th>最终效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>高斯滤波</td>
+<td align="center"><img src="https://pic2.zhimg.com/80/v2-2716ea27c979bfb80bcca9fe2d2ce92d_1440w.webp"></td>
+<td><img src="https://pic3.zhimg.com/80/v2-fa6c4b3376cdbbc72ba8527481ff5f7e_1440w.webp" alt="img"></td>
+<td><img src="https://pic3.zhimg.com/80/v2-3d730a93157c276fff243228c7087d16_1440w.webp" alt="img"></td>
+</tr>
+<tr>
+<td>双边滤波</td>
+<td align="center"></td>
+<td><img src="https://pic3.zhimg.com/80/v2-bc99652fff3da6c6795dad09b83de51e_1440w.webp" alt="img"></td>
+<td><img src="https://pic2.zhimg.com/80/v2-1291f97d841fd2c5c07b0c9c446726fd_1440w.webp" alt="img"></td>
+</tr>
+<tr>
+<td>引导滤波</td>
+<td align="center"></td>
+<td><img src="https://pic3.zhimg.com/80/v2-f114925a9a52455a0bf71fdbcbabb1b2_1440w.webp" alt="img"></td>
+<td><img src="https://pic2.zhimg.com/80/v2-f6c837f57ff20817943f1113998af7f9_1440w.webp" alt="img"></td>
+</tr>
+</tbody></table>
+<h4 id="压缩基础层"><a href="#压缩基础层" class="headerlink" title="压缩基础层"></a>压缩基础层</h4><p>上面讲了分离基础层和细节层的一个滤波思路，接下来就是压缩基础层的动态范围。</p>
+<p>具体压缩方法，<strong>原来的 HDR 图像 &#x3D; 1.0 * 细节层 + 1.0 * 基础层</strong></p>
+<p>而<strong>压缩的HDR图像 &#x3D; 0.2 * 细节层 + 1.0 * 基础层</strong> </p>
+<p>压缩程度是一个人为定义的参数，上面假如是 0.2，在论文里的计算方法是给一个 contrast 参数，然后压缩参数由下式得到<br>$$<br>factor &#x3D; \frac{contrast}{max(log\ Base)-min(log\ Base)}<br>$$<br>因此，压缩动态范围就变成了</p>
+<p><strong>log10(压缩的 HDR 图像) &#x3D; factor * log10(基础层) + 1.0 * log10(细节层)</strong></p>
+<p>压缩结果取 pow(10, x) 就可得到压缩结果。</p>
+<h4 id="算法步骤"><a href="#算法步骤" class="headerlink" title="算法步骤"></a>算法步骤</h4><p>虽然上面的步骤看起来简单，但实现起来还是有很多不同。官方给出的步骤（我修改之后）如下</p>
+<ol>
+<li>input intensity&#x3D; 1&#x2F;61*(R<em>20+G</em>40+B)</li>
+<li>log(base) &#x3D; Bilateral(log(input intensity))</li>
+<li>log(detail) &#x3D; log(input intensity)-log(base)</li>
+<li>log (output intensity) &#x3D; log(base) * compressionfactor + log(detail)</li>
+<li>R output &#x3D; R * 10^(log(output intensity)) &#x2F; intensity</li>
+</ol>
+<p>第 1 步先根据 RGB 三通道的加权，得到一个亮度图，为什么是 1&#x2F;61∗(R∗20+G∗40+B) 我不知道；</p>
+<p>第 2-3 步根据双边滤波，分离出基础层和线性层，都是在 log10 域运算的，双边滤波有两个参数，值域标准差取 0.4，空域标准差取 0.02 * min(H, W)，倍数取 0.02 ~ 0.05 之间；</p>
+<p>第 4 步压缩基础层，其中 compressionfactor 通过factor公式计算得到，contrast 人为给定；</p>
+<p>第 5 步，根据压缩后的 HDR 输出 &#x2F; 亮度图的比例，r, g, b 三通道每个点对应等比例缩放——这么做的原因是，之前压缩的基础层都是在亮度图上操作的，求出每个点的压缩比例即可对 r, g, b 通道做统一变换，避免 r,g,b 不同步变换破坏白平衡；</p>
+<p>上面压缩了 HDR 图像得到了一个相对动态范围更小的图像，但动态范围还不是 0-255，不方便显示设备显示，于是可以把数据标准化到 0-1，乘以 255 将数据转成 0-255 范围内，标准化直接除以一个最大值即可令值 ＜ 1，论文给的方式是$R’&#x3D;255x\frac{R}{pow(10,max(log\ B)*factor)}$</p>
+<h2 id="Gamma-伽马校正"><a href="#Gamma-伽马校正" class="headerlink" title="Gamma 伽马校正"></a>Gamma 伽马校正</h2><img src="https://pic2.zhimg.com/80/v2-73237747cd5f9ed14fcaa90adc711b99_1440w.webp" alt="img" style="zoom:50%;" />
+
+<center>不同Gamma值下校正下的灰度变化</center>
+
+<h3 id="GAMMA产生的原因："><a href="#GAMMA产生的原因：" class="headerlink" title="GAMMA产生的原因："></a>GAMMA产生的原因：</h3><ul>
+<li><p>CRT显示器：</p>
+<p>阴极射线管，工作原理大致就是后面的电子前发射电子，经加速电场和偏移电场的作用达到屏幕上指定的位置，然后屏幕的特殊材质会发光产生画面。然后屏幕显示的亮度就和电子的数量有关，而这个又和电子枪的电压有关，所以屏幕亮度就和电子枪的电压又一个函数关系。</p>
+<p>但是需要注意的是这个函数关系不是线性的，也就是说当电子枪的电压升高为原来的两倍，但是屏幕亮度并不能变为原本的两倍，后面经过实验总结发现CRT的这种非线性关系满足对数关系。</p>
+<img src="https://pic4.zhimg.com/80/v2-b42fe59de0581c4e9e864ef52ae1f79f_1440w.webp" alt="img" style="zoom: 33%;" />
+</li>
+<li><p>人眼的非线性感知：</p>
+<p>对于gamma还有一种说法就是，人眼的亮度响应曲线不是线性的而是如下图的关系。</p>
+<img src="https://pic1.zhimg.com/80/v2-fb458be1c429693c3ad6bf0c6f118918_1440w.webp" alt="img" style="zoom: 67%;" />
+
+<p>所以为了更好符合人眼的特性，就需要对暗区进行加强以提高画面的动态范围和暗区细节，更好的响应人眼对暗部更敏感的特性。而屏幕显示的时候又刚好有一个反伽马的特性，这一种说法认为这是一种巧合。</p>
+</li>
+</ul>
+<h3 id="GAMMA校正方法"><a href="#GAMMA校正方法" class="headerlink" title="GAMMA校正方法"></a>GAMMA校正方法</h3><ul>
+<li><p>LUT法</p>
+<p>理解起来很简单，就是提前把每个像素值经gamma矫正后对应的值求出来，然后把这些数据直接存储到一个数中，到矫正的时候根据输入的值就能直接通过数组下标就能找到对应的矫正后的值，这种方式最大的有点就时快，几乎不消耗硬件资源，因为几乎不用做任何计算的处理，但是这种方式的弊端在于需要大量的内存来存储这么这个表。</p>
+<img src="https://pic2.zhimg.com/80/v2-58bde67299a9a49bef307ecd1f74a921_1440w.webp" alt="img" style="zoom:50%;" />
+
+<center>海思GAMMA LUT</center>
+</li>
+<li><p>线性插值法</p>
+<p>线性插值法也很好理解，就是在gamma曲线上提取一些采样点，然后把采样点的输入输出作为xy存储起来，然后矫正的时候如果在采样点上就接直接输入矫正值，如果不在，那么肯定在某两个采样点之间，那么就可以就可以通过这两个采样点的线性方程求解出该点的校正值。但是这种方式会有一定的误差，因为线性方程并布恩那个完全拟合gamma曲线。这种方式在一些廉价的方案里面会用到。</p>
+<img src="https://pic1.zhimg.com/80/v2-535c38875642cc617df0cd89d2dfbdac_1440w.webp" alt="img" style="zoom:100%;" /></li>
+</ul>
+<h2 id="EE-边缘增强"><a href="#EE-边缘增强" class="headerlink" title="EE 边缘增强"></a>EE 边缘增强</h2><h3 id="EE原因"><a href="#EE原因" class="headerlink" title="EE原因"></a>EE原因</h3><p>边缘增强是一种提高图像清晰度的数字处理技术有意强调马赫带效应的图像。 创造明亮而任何线条两侧的深色高光都会使线条看起来与线条形成对比距离。 它只会增加感知清晰度。 一些文物是由边缘增强。 增强并不是完全可逆的，一些细节由于增强，图像中的内容可能会丢失。 反复磨刀操作在生成的图像上会导致细节损失，并导致伪影，称为铃声。 </p>
+<h3 id="EE算法"><a href="#EE算法" class="headerlink" title="EE算法"></a>EE算法</h3><p>大多数锐化滤波器基于一阶和二阶导数。 其中，拉普拉斯滤波器一直是最受欢迎的工具。 下式描述像素值 I(x, y) 的拉普拉斯滤波器之一，其中 x 和 y 是图像中的水平和垂直坐标。<br>$$<br>L(x,y)&#x3D;\nabla^2(x,y)&#x3D;\frac{\partial^2I(x,y)}{\partial x^2}+\frac{\partial^2I(x,y)}{\partial y^2}\<br>&#x3D;I(x-1,y)+I(x+1,y)+I(x,y-1)+I(x,y+1)-4I(x,y)<br>$$<br>使用拉普拉斯滤波器进行锐化，即使用一个3x3的拉普拉斯卷积核对整个图像进行卷积操作，然后依据卷积结果和增益值进行图像边缘增强。</p>
+<div>
+\begin{equation}
+Kernel=
+\begin{bmatrix}  
+0&-1&0\\  
+-1&4&-1\\
+0&-1&0 
+\end{bmatrix}\\
+I'=I+EE_{gain}\cdot(I\ast Kernel)
+\end{equation}
+</div>
+
+
+<h2 id="CSM-颜色空间转换"><a href="#CSM-颜色空间转换" class="headerlink" title="CSM 颜色空间转换"></a>CSM 颜色空间转换</h2><h3 id="CSM的原因"><a href="#CSM的原因" class="headerlink" title="CSM的原因"></a>CSM的原因</h3><p>RGB转其他颜色空间，如YUV。然后有一些主控（很多没有这个）设计的时候在CCM之后会有一个RGB2HSV的转换，以便进一步通过色度和饱和度两个层面对颜色做进一步的处理。</p>
+<h3 id="YUV"><a href="#YUV" class="headerlink" title="YUV"></a>YUV</h3><ol>
+<li><p>BT.601, which is the standard for SDTV</p>
+<p><img src="https://ibabyblue.github.io/assets/bt.601.png" alt="转换公式-标清（SD)"></p>
+</li>
+<li><p>BT.601 full range</p>
+<p><img src="https://ibabyblue.github.io/assets/fullrange.png" alt="转换公式-fullrange"></p>
+</li>
+<li><p>BT.709, which is the standard for HDTV.</p>
+<p><img src="https://ibabyblue.github.io/assets/bt.709.png" alt="转换公式-高清（HD）"></p>
+</li>
+</ol>
+<p>常用转换矩阵代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// BT.601, which is the standard for SDTV.</span></span><br><span class="line">GLfloat kColorConversion601Default[] = &#123;</span><br><span class="line">    <span class="number">1.164</span>,  <span class="number">1.164</span>, <span class="number">1.164</span>,</span><br><span class="line">     <span class="number">0.0</span>,  <span class="number">-0.392</span>, <span class="number">2.017</span>,</span><br><span class="line">    <span class="number">1.596</span>, <span class="number">-0.813</span>,  <span class="number">0.0</span>,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// BT.601 full range </span></span><br><span class="line">GLfloat kColorConversion601FullRangeDefault[] = &#123;</span><br><span class="line">    <span class="number">1.0</span>,   <span class="number">1.0</span>,   <span class="number">1.0</span>,</span><br><span class="line">    <span class="number">0.0</span>, <span class="number">-0.343</span>, <span class="number">1.765</span>,</span><br><span class="line">    <span class="number">1.4</span>, <span class="number">-0.711</span>,  <span class="number">0.0</span>,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// BT.709, which is the standard for HDTV.</span></span><br><span class="line">GLfloat kColorConversion709Default[] = &#123;</span><br><span class="line">    <span class="number">1.164</span>,  <span class="number">1.164</span>, <span class="number">1.164</span>,</span><br><span class="line">     <span class="number">0.0</span>,  <span class="number">-0.213</span>, <span class="number">2.112</span>,</span><br><span class="line">    <span class="number">1.793</span>, <span class="number">-0.533</span>,  <span class="number">0.0</span>,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://s2.loli.net/2024/04/10/zy9tS3BcOskEPAK.png" alt="YUV格式的作用"></p>
+<ol>
+<li>YUV是早期欧洲定义的一种信号格式，主要是为了解决黑白电视和彩色电视过渡时期的信号兼容问题，黑白电视只需要亮度值，不需要彩色信号，而彩色电视既需要亮度信号也需要色彩信号，所以如果直接使用RGB就会带来兼容问题，而采用YUV信号，黑白电视不处理彩色信号即可；</li>
+<li>可以将Y和UV分开处理，即将亮度信号和色度信号分开处理，这样更符合HVS，因为本专题前面的博文也提到过HVS中人眼对亮度信号更明高，对色度信号相对不明感，那么在去噪等一些处理的时候就可以针对不同层面的信号做不同强度的处理，从而最大程度的保护图像效果；</li>
+<li>为后续的数据压缩做准备，因为通常现在用的多的MJPG和网络传输用的H264和H265等信号都是基于YUV信号的基础上做进一步的数据压缩得来的。</li>
+</ol>
+<p>YUV中Y表示亮度信号，UV表示色度信号也就是色差信息，通常查资料还会出现YCrCb这种信号，其实YCrCb是数字信号时代定义的一种色差信号，是通过YUV加上一定程度的offset得到的，使得色差数据都大于0，大多数情况下已经不对二者进行区分了，现在提到的YUV其实都是指的YCrCb格式，只是习惯原因通常还是会直接说是YUV。</p>
+<p><img src="https://s2.loli.net/2024/04/10/BuAqRY5On64Coxl.png" alt="YUV采样"></p>
+<p>如图是三种最常见的采样比例，黑色实心点为Y分量，空心的圆圈为UV分量：</p>
+<ul>
+<li>YUV444：完全采样，即每一个Y信号对应的UV信号都采样，没有损失任何信号；</li>
+<li>YUV422：两个Y信号公用一个UV分量，及4个有分量对应2个U和2个V分量，色度信号损失一部分从而减小数据量；</li>
+<li>YUV420：四个Y分量公用一个UV分量，在422的基础上进一步降低数据量。</li>
+</ul>
+<h3 id="HSV"><a href="#HSV" class="headerlink" title="HSV"></a>HSV</h3><p>HSV（色调、饱和度、亮度）是一种颜色模型，用于描述和表示颜色。与RGB（红、绿、蓝）和CMYK（青、品红、黄、黑）等其他颜色模型相比，HSV模型更加直观和易于理解。</p>
+<p>HSV模型基于人类对颜色的感知方式，将颜色的属性分为三个主要部分：</p>
+<ol>
+<li>色调（Hue）：色调表示颜色的类型或种类，例如红色、绿色、蓝色等。在HSV模型中，色调的取值范围是0到360度，其中0度和360度对应于红色，120度对应于绿色，240度对应于蓝色等。色调通过在色轮上移动来改变颜色的种类。</li>
+<li>饱和度（Saturation）：饱和度表示颜色的纯度或浓度。较高的饱和度意味着颜色更加鲜艳、饱和，而较低的饱和度则表示颜色更加灰暗、淡化。在HSV模型中，饱和度的取值范围是0到1之间，其中0表示完全无色（灰度），1表示最大饱和度（纯色）。</li>
+<li>亮度（Value）：亮度表示颜色的明暗程度。较高的亮度值意味着颜色更加明亮、高亮，而较低的亮度值则表示颜色更加暗淡、低亮。在HSV模型中，亮度的取值范围也是0到1之间，其中0表示黑色，1表示最大亮度（白色）。</li>
+</ol>
+<p>HSV模型的优点之一是它能够提供一种直观的方式来控制颜色的属性。通过调整色调、饱和度和亮度的值，可以轻松地改变颜色的外观和感觉，例如调节颜色的暗度、饱和度和色调的强度。HSV模型通常在图形处理和计算机图形学中广泛应用，以及在颜色选择和编辑工具中用于调整和控制颜色。</p>
+<p>计算公式如下：</p>
+<div>
+\begin{equation}
+V = \max(R, G, B) \\
+S = \begin{cases} 
+    0, & \text{if } V = 0 \\
+    \frac{V - \min(R, G, B)}{V},  \text{otherwise}
+    \end{cases} \\
+H = \begin{cases}
+    0, & \text{if } V = 0 \\
+    \frac{60(G - B)}{V - \min(R, G, B)},  \text{if } V = R \\
+    \frac{120 + 60(B - R)}{V - \min(R, G, B)},  \text{if } V = G \\
+    \frac{240 + 60(R - G)}{V - \min(R, G, B)},  \text{if } V = B
+    \end{cases}
+\end{equation}
+</div>
+
+<h2 id="HSC-色度饱和度控制"><a href="#HSC-色度饱和度控制" class="headerlink" title="HSC 色度饱和度控制"></a>HSC 色度饱和度控制</h2><h3 id="HSC算法"><a href="#HSC算法" class="headerlink" title="HSC算法"></a>HSC算法</h3><p>在YUV域直接调整图像的色度 H和饱和度 S，不需要yuv2rgb，rgb2hsv的转换。</p>
+<ul>
+<li><p>Hue调整</p>
+<div>
+\begin{equation}
+U'=(U-128)\cdot cos(\theta)+(U-128)\cdot sin(\theta)+128\\\\
+V'=(V-128)\cdot cos(\theta)+(V-128)\cdot sin(\theta)+128
+\end{equation}
+</div>
+其中$-180^\circ <\theta<180^\circ$
+</li>
+<li><p>Saturationt调整</p>
+<div>
+\begin{equation}
+U'=(U-128)*S+128\\\\
+V'=(v-128)*S+128
+\end{equation}
+</div></li>
+</ul>
+<h2 id="DNNSR-深度神经网络超分辨率"><a href="#DNNSR-深度神经网络超分辨率" class="headerlink" title="DNNSR 深度神经网络超分辨率"></a>DNNSR 深度神经网络超分辨率</h2><h3 id="EDSR"><a href="#EDSR" class="headerlink" title="EDSR"></a>EDSR</h3><p>EDSR是一篇经典的超分论文，在NTIRE 2017比赛的超分挑战中获胜，并在2017年发表成文。EDSR对后续的超分算法有很重要的影响，至今（2021年）在学术界也常被引用，同时也很受工业界落地需求的欢迎。下面是EDSR的几个主要创新点：</p>
+<ul>
+<li><p>通过去除传统残差网络中不必要的模块，EDSR在效果上获得了显著的提高。没错 EDSR借鉴了ResNet网络基于残差进行学习的机制，input经过一层卷积后兵分两路，一条路经过n层的ResBlock再卷积一次，一条路则直接通向交汇处，进行加权求和，再经过上采样的处理与卷积输出结果。但是EDSR与ResNet中的ResBlock有些不同，EDSR中没有BN层，没有标准化的过程。超分的粒度是每一个像素点，而识别任务仅产出一个output，绝对值对于超分来说很重要，最后需要添加的是像素点绝对的数值，BN层会消除这样的绝对数，使之成为相对值，从而造成高频信息的一个丢失。</p>
+<p><img src="https://pic1.zhimg.com/80/v2-c7986fb67d5b1409da1a61a76188ec88_1440w.webp" alt="ESDR模型"></p>
+</li>
+<li><p>通过扩大模型参数、增加模型参数，且同时稳定训练过程，EDSR的效果得到了进一步提升。</p>
+</li>
+<li><p>同时，本文还提出了一个针对不同尺度的深度超分系统MDSR(Multi-Scale Deep Super-Resolution)，该系统可以对图像同时进行不同倍数的放大(x2&#x2F;x3&#x2F;x4)。</p>
+</li>
+</ul>
+<p><img src="https://s2.loli.net/2024/04/10/wGdhRO8FHIuzVZk.png" alt="EDSR architecture"></p>
+<h3 id="ESPCN"><a href="#ESPCN" class="headerlink" title="ESPCN"></a>ESPCN</h3><p>在SRCNN和DRCN中，低分辨率图像都是先通过上采样插值得到与高分辨率图像同样的大小，再作为网络输入，意味着卷积操作在较高的分辨率上进行，相比于在低分辨率的图像上计算卷积，会降低效率。 ESPCN(Real-Time Single Image and Video Super-Resolution Using an Efficient Sub-Pixel Convolutional Neural Network，CVPR 2016)提出一种在低分辨率图像上直接计算卷积得到高分辨率图像的高效率方法。</p>
+<p><img src="https://s2.loli.net/2024/04/10/hVpSwrHBAD78aYI.png" alt="ESPCN模型"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ESPCN网络结构</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Net</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, upscale_factor</span>):</span><br><span class="line">        <span class="built_in">super</span>(Net, self).__init__()</span><br><span class="line"></span><br><span class="line">        self.conv1 = nn.Conv2d(<span class="number">1</span>, <span class="number">64</span>, (<span class="number">5</span>, <span class="number">5</span>), (<span class="number">1</span>, <span class="number">1</span>), (<span class="number">2</span>, <span class="number">2</span>))</span><br><span class="line">        self.conv2 = nn.Conv2d(<span class="number">64</span>, <span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), (<span class="number">1</span>, <span class="number">1</span>), (<span class="number">1</span>, <span class="number">1</span>))</span><br><span class="line">        self.conv3 = nn.Conv2d(<span class="number">32</span>, <span class="number">1</span> * (upscale_factor ** <span class="number">2</span>), (<span class="number">3</span>, <span class="number">3</span>), (<span class="number">1</span>, <span class="number">1</span>), (<span class="number">1</span>, <span class="number">1</span>))</span><br><span class="line">        self.pixel_shuffle = nn.PixelShuffle(upscale_factor)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        x = F.tanh(self.conv1(x))</span><br><span class="line">        x = F.tanh(self.conv2(x))</span><br><span class="line">        x = F.sigmoid(self.pixel_shuffle(self.conv3(x)))</span><br><span class="line">        <span class="keyword">return</span> x</span><br></pre></td></tr></table></figure>
+
+<p>训练时，可以将输入的训练数据标签，预处理成重新排列操作前的格式，比如将21×21的单通道图，预处理成9个通道，7×7的图，这样在训练时，就不需要做重新排列的操作。另外，ESPCN激活函数采用tanh替代了ReLU。损失函数为均方误差。</p>
+<h3 id="LapSRN"><a href="#LapSRN" class="headerlink" title="LapSRN"></a>LapSRN</h3><p>LaSRN是2017年在CVPR上发表的超分辨率算法Deep Laplacian Pyramid Networks for Fast and Accurate Super-Resolution，作者结合传统图像算法拉普拉斯金字塔与深度学习，实现多级超分辨模型，由LR生成不同超分辨率SR。（HR:high-resoluton指高分辨率图像, SR:super-resoluton指超分辨率图像, LR:low-resoluton指低分辨率图像）</p>
+<p>优点：</p>
+<ul>
+<li><p>速度快:和FSRCNN差不多，实现了实时重建</p>
+</li>
+<li><p>精度高:LapSRN直接从LR图像提取特征图，用深的卷积层优化上采样过滤器并预测子带残差</p>
+</li>
+</ul>
+<p><img src="https://s2.loli.net/2024/04/10/g2CdWlHp4aQJ1uv.jpg" alt="LapSRN模型"></p>
+<p>上层分支即特征提取中，每一级有d个卷积层，再跟随一个2倍的反卷积提升分辨率即图像长宽各扩大一倍，每个反卷积层的输出与两个不同层链接：(1) 重建残差图像的卷积层；(2)s+1层提取特征的卷积层。残差图像（图中黑白图像）和采用相同方式（上采样）提升分辨率的LR图像相加，得到更精细的SR。这样采用逐层递进的方式可以重建出更为清晰的超分辨图像，也因此可以获得不同scale的重构图像。</p>
+<p>我们的最终目标是从输入x构建出靠近真实HR:Y的超分辨图像。假设在s级金字塔的残差图像为rs，升采样过后的图像为xs，对应的HR图像为ys&#x3D;rs+xs。将HR用双三次插值降采样到对应的金字塔等级：Ys，构建的损失函数为： </p>
+<p><img src="https://s2.loli.net/2024/04/10/5xQZm1LOloGfg3U.jpg" alt="LapSCN损失函数"></p>
+<p>其中ρ(x)&#x3D;sqrt（x2+ϵ2）是Charbonnier penalty function（L1范数的变体），N是每个批次的数量，L是金字塔的级数。在这种损失函数下，金字塔每级的输出都会靠近某个尺度下的HR，因此才可以同时实现<em>2</em>4*8的超分辨。</p>
+<h3 id="FSRCNN"><a href="#FSRCNN" class="headerlink" title="FSRCNN"></a>FSRCNN</h3><p><img src="https://pic4.zhimg.com/80/v2-c6b77086f36fe4d26f574e2fb9c17233_1440w.webp" alt="img"></p>
+<p>FSRCNN的结构如图二下半部分所示。整个网络可以被分解为5个部分：特征提取、压缩、映射、扩展、去卷积。其中前四部分都是卷积层conv(fi, ni, ci)，第五部分是去卷积层deconv(fi, ni, ci)，其中fi, ni, ci分别为核尺寸，核数量，核通道。作者将网络中的变量分为敏感变量和不敏感变量（敏感是指微小改变即可对网络结果造成很大影响），其中不敏感变量可以预设，而敏感变量则需根据实验比较得出其值。</p>
+<p><strong>特征提取：</strong>这部分是和SRCNN相似的，不同点在于FSRCNN不经过对LR图像的插值，而是直接从LR图像提取子图块信息。参照SRCNN中插值后的提取块的大小为9X9，对应插值前的LR的块大小为5X5，因此，FSRCNN提取的块为5X5大小的。若输入图像为灰度，则核深度为1，而核的数量决定了该层卷积输出的特征图的维度d。因为经过特征提取部分的特征图即将送入真正的SR过程，所以维度d是至关重要的。因此<strong>d是第一个敏感变量</strong>，需要实验对比得出。因此该层可记为conv(5,d,1)。</p>
+<p><strong>压缩（这部分的高低维指的是特征图的通道数）：</strong>这部分主要考虑到SRCNN中直接在高维特征图上对LR做SR，因此会通过增加滤波核的通道数和数量来增加参数（计算量）。因此，考虑如下思路：先对LR图像通道数进行减小，然后在低维LR特征图进行SR操作，这样会减少运算参数，最后再对生成的SR图像进行升维操作。</p>
+<p>我们可以用s个1X1的滤波核，对来自特征提取层的d维图像进行降维处理（从d降到s），<strong>s是第二个敏感变量</strong>，这可以为后续的SR操作减少参数量。该层可记为conv(1,s,d)。</p>
+<p><strong>非线性映射：</strong>前边的所有操作都是准备阶段，真正的SR操作在此步。而该步最重要的两个参数为特征图的通道数（d，即核的数量）和深度（卷积层的层数m，<strong>m是第三个敏感变量</strong>），深度m决定了SR的精度和复杂度。卷积核的尺寸为3X3，因此该部分可记为m$\times$conv(3, s, s)。</p>
+<p><strong>扩展：</strong>详细到这来读者都有一个疑问，就是为什么要有扩展层，不能直接由得到的低维SR特征图直接进行重建，进而得到可视化的SR（单或三通道）图像吗？这里作者通过实验证明，这样做会使重建的SR的PNSR比升维后再重建的SR至少降低0.3 dB。扩展部分使用d个1X1的核，以期恢复到压缩前的图像形状。因此可以看到，压缩、非线性映射、扩展这三部分是对称的。扩展部分可记为conv(1, d, s)。</p>
+<p><strong>去卷积：</strong>可视为卷积的逆操作，可以将小尺寸的图像恢复成大尺寸的图像。参照图4，我们通过在deconv前移动一个步长，得到deconv后移动的两个步长的区域，这样就可以实现对图像放大2倍的操作了。作者也提供了另一种看待此网络的角度，即将信息视为从HR向LR传播。这样可以更方便理解。同时为了保持对称结构，需要采取9X9的滤波器大小。该层可记为deconv(9, 1, d)。去卷积不同于传统的插值方法，传统的方法对所有的重建像素都有一套共同的重建公式，而去卷积的核需要学习得到，它能够针对具体的任务，得出更精确的结果。</p>
+<p><img src="https://pic1.zhimg.com/80/v2-f03ea8b2a93c7fcc9fa003a8e22bb700_1440w.webp" alt="img"></p>
+</div><div class="article-licensing box"><div class="licensing-title"><p>ISP-Pipeline-Notes(3)</p><p><a href="http://coolsyn.top/2024/04/11/ISP-Pipeline-Notes(3)/">http://coolsyn.top/2024/04/11/ISP-Pipeline-Notes(3)/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Coolsyn</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2024-04-11</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2024-04-11</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/Notes/">Notes</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/04/11/ISP-Pipeline-Notes(2)/"><span class="level-item">ISP-Pipeline-Notes(2)</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="https://s2.loli.net/2024/04/10/oLDgPcA3WGsxfEu.jpg" alt="Coolsyn"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Coolsyn</p><p class="is-size-6 is-block">Computer Vision Engineer, OPPO</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Shenzhen, China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">5</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">2</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">2</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/coolsyn2000" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/coolsyn2000"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Zhihu" href="https://www.zhihu.com/people/never-mind-80"><i class="fab fa-zhihu"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Bilibili" href="https://space.bilibili.com/261084590"><i class="fab fa-bilibili"></i></a></div></div></div><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="level is-mobile" href="#LTM-局部色调映射"><span class="level-left"><span class="level-item">1</span><span class="level-item">LTM 局部色调映射</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#HDR显示"><span class="level-left"><span class="level-item">1.1</span><span class="level-item">HDR显示</span></span></a></li><li><a class="level is-mobile" href="#LTM算法"><span class="level-left"><span class="level-item">1.2</span><span class="level-item">LTM算法</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#分离基础层和细节层"><span class="level-left"><span class="level-item">1.2.1</span><span class="level-item">分离基础层和细节层</span></span></a></li><li><a class="level is-mobile" href="#压缩基础层"><span class="level-left"><span class="level-item">1.2.2</span><span class="level-item">压缩基础层</span></span></a></li><li><a class="level is-mobile" href="#算法步骤"><span class="level-left"><span class="level-item">1.2.3</span><span class="level-item">算法步骤</span></span></a></li></ul></li></ul></li><li><a class="level is-mobile" href="#Gamma-伽马校正"><span class="level-left"><span class="level-item">2</span><span class="level-item">Gamma 伽马校正</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#GAMMA产生的原因："><span class="level-left"><span class="level-item">2.1</span><span class="level-item">GAMMA产生的原因：</span></span></a></li><li><a class="level is-mobile" href="#GAMMA校正方法"><span class="level-left"><span class="level-item">2.2</span><span class="level-item">GAMMA校正方法</span></span></a></li></ul></li><li><a class="level is-mobile" href="#EE-边缘增强"><span class="level-left"><span class="level-item">3</span><span class="level-item">EE 边缘增强</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#EE原因"><span class="level-left"><span class="level-item">3.1</span><span class="level-item">EE原因</span></span></a></li><li><a class="level is-mobile" href="#EE算法"><span class="level-left"><span class="level-item">3.2</span><span class="level-item">EE算法</span></span></a></li></ul></li><li><a class="level is-mobile" href="#CSM-颜色空间转换"><span class="level-left"><span class="level-item">4</span><span class="level-item">CSM 颜色空间转换</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#CSM的原因"><span class="level-left"><span class="level-item">4.1</span><span class="level-item">CSM的原因</span></span></a></li><li><a class="level is-mobile" href="#YUV"><span class="level-left"><span class="level-item">4.2</span><span class="level-item">YUV</span></span></a></li><li><a class="level is-mobile" href="#HSV"><span class="level-left"><span class="level-item">4.3</span><span class="level-item">HSV</span></span></a></li></ul></li><li><a class="level is-mobile" href="#HSC-色度饱和度控制"><span class="level-left"><span class="level-item">5</span><span class="level-item">HSC 色度饱和度控制</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#HSC算法"><span class="level-left"><span class="level-item">5.1</span><span class="level-item">HSC算法</span></span></a></li></ul></li><li><a class="level is-mobile" href="#DNNSR-深度神经网络超分辨率"><span class="level-left"><span class="level-item">6</span><span class="level-item">DNNSR 深度神经网络超分辨率</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#EDSR"><span class="level-left"><span class="level-item">6.1</span><span class="level-item">EDSR</span></span></a></li><li><a class="level is-mobile" href="#ESPCN"><span class="level-left"><span class="level-item">6.2</span><span class="level-item">ESPCN</span></span></a></li><li><a class="level is-mobile" href="#LapSRN"><span class="level-left"><span class="level-item">6.3</span><span class="level-item">LapSRN</span></span></a></li><li><a class="level is-mobile" href="#FSRCNN"><span class="level-left"><span class="level-item">6.4</span><span class="level-item">FSRCNN</span></span></a></li></ul></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Icarus</span></span><span class="level-right"><span class="level-item tag">github.com</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/Campus/"><span class="level-start"><span class="level-item">Campus</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/ISP/"><span class="level-start"><span class="level-item">ISP</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><figure class="media-left"><a class="image" href="/2024/04/11/ISP-Pipeline-Notes(3)/"><img src="/gallery/covers/camera_midjounery.png" alt="ISP-Pipeline-Notes(3)"></a></figure><div class="media-content"><p class="date"><time dateTime="2024-04-11T02:37:52.000Z">2024-04-11</time></p><p class="title"><a href="/2024/04/11/ISP-Pipeline-Notes(3)/">ISP-Pipeline-Notes(3)</a></p><p class="categories"><a href="/categories/ISP/">ISP</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2024/04/11/ISP-Pipeline-Notes(2)/"><img src="/gallery/covers/camera_midjounery.png" alt="ISP-Pipeline-Notes(2)"></a></figure><div class="media-content"><p class="date"><time dateTime="2024-04-11T02:32:52.000Z">2024-04-11</time></p><p class="title"><a href="/2024/04/11/ISP-Pipeline-Notes(2)/">ISP-Pipeline-Notes(2)</a></p><p class="categories"><a href="/categories/ISP/">ISP</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2024/04/10/ISP-Pipeline-Notes(1)/"><img src="/gallery/covers/camera_midjounery.png" alt="ISP-Pipeline-Notes(1)"></a></figure><div class="media-content"><p class="date"><time dateTime="2024-04-10T14:43:52.000Z">2024-04-10</time></p><p class="title"><a href="/2024/04/10/ISP-Pipeline-Notes(1)/">ISP-Pipeline-Notes(1)</a></p><p class="categories"><a href="/categories/ISP/">ISP</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-04-10T13:10:00.000Z">2024-04-10</time></p><p class="title"><a href="/2024/04/10/%E6%A0%A1%E6%8B%9B%E5%BD%B1%E5%83%8F%E7%AE%97%E6%B3%95%E7%9F%A5%E8%AF%86%E7%82%B9%E5%A4%8D%E7%9B%98/">校招影像算法知识点复盘</a></p><p class="categories"><a href="/categories/ISP/">ISP</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-11-01T12:51:57.000Z">2023-11-01</time></p><p class="title"><a href="/2023/11/01/24%E5%B1%8A%E5%85%89%E5%AD%A6%E7%A1%95%E5%A3%AB%E7%A7%8B%E6%8B%9B%E9%9A%8F%E6%83%B3/">24届光学硕士秋招随想</a></p><p class="categories"><a href="/categories/Campus/">Campus</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2024/04/"><span class="level-start"><span class="level-item">April 2024</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/11/"><span class="level-start"><span class="level-item">November 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/Notes/"><span class="tag">Notes</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Thoughts/"><span class="tag">Thoughts</span><span class="tag">2</span></a></div></div></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="Hexo" height="28"></a><p class="is-size-7"><span>&copy; 2024 Coolsyn</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2024</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>
