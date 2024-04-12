@@ -29,7 +29,7 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Hexo" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/coolsyn2000"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-9-widescreen"><div class="card"><div class="card-image"><a class="image is-7by3" href="/2024/04/12/hexo-github-pages%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"><img class="fill" src="/gallery/covers/icarus.png" alt="Hexo-Icarus &amp; Github-Pages博客搭建"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2024-04-12T02:52:21.000Z" title="2024/4/12 10:52:21">2024-04-12</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-04-12T12:07:37.606Z" title="2024/4/12 20:07:37">2024-04-12</time></span><span class="level-item"><a class="link-muted" href="/categories/Blog/">Blog</a></span><span class="level-item">4 minutes read (About 577 words)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2024/04/12/hexo-github-pages%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">Hexo-Icarus &amp; Github-Pages博客搭建</a></p><div class="content"><h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><ul>
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Hexo" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/coolsyn2000"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-9-widescreen"><div class="card"><div class="card-image"><a class="image is-7by3" href="/2024/04/12/hexo-github-pages%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"><img class="fill" src="/gallery/covers/icarus.png" alt="Hexo-Icarus &amp; Github-Pages博客搭建"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2024-04-12T02:52:21.000Z" title="2024/4/12 10:52:21">2024-04-12</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-04-12T12:10:12.092Z" title="2024/4/12 20:10:12">2024-04-12</time></span><span class="level-item"><a class="link-muted" href="/categories/Blog/">Blog</a></span><span class="level-item">4 minutes read (About 578 words)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2024/04/12/hexo-github-pages%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">Hexo-Icarus &amp; Github-Pages博客搭建</a></p><div class="content"><h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><ul>
 <li><p>安装node.js </p>
 <p>  Node.js 安装包及源码下载地址为：<a target="_blank" rel="noopener" href="https://nodejs.org/en/download">https://nodejs.org/en/download</a></p>
 </li>
@@ -39,64 +39,7 @@
 <li><p>安装hexo</p>
 <p>  <code>npm install -g hexo-cli</code></p>
 </li>
-</ul>
-<h2 id="Github-Pages-设置"><a href="#Github-Pages-设置" class="headerlink" title="Github-Pages 设置"></a>Github-Pages 设置</h2><ul>
-<li><p>新建仓库，命名为username.github.io</p>
-</li>
-<li><p>在<code>Settings</code> - <code>Pages</code> - <code>Build and deployment</code> - <code>Source</code>中选择 <code>Deploy from a branch</code></p>
-</li>
-<li><p>为你的本地git生成rsa-key并上传到Github</p>
-</li>
-</ul>
-<h2 id="Hexo创建博客"><a href="#Hexo创建博客" class="headerlink" title="Hexo创建博客"></a>Hexo创建博客</h2><ul>
-<li><p>博客文件夹初始化</p>
-<p>  <code>hexo init blog</code></p>
-<p>  首先初始化一个博客项目，此处blog可以换成自己想要起的名称。该操作之后在当前目录下会出现一个叫做blog的新的文件夹</p>
-<p>  <code>cd blog</code></p>
-<p>  进入blog文件夹下</p>
-  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-theme-icarus</span><br><span class="line">hexo config theme icarus</span><br></pre></td></tr></table></figure>
-<p>  安装并设置icarus主题</p>
-  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g # 生成文件</span><br><span class="line">hexo s # 启动本地服务器</span><br></pre></td></tr></table></figure>
-<p>  浏览器中输入<code>localhost:4000</code>查看网站情况</p>
-</li>
-<li><p>博客写作</p>
-<ul>
-<li><p><code>hexo new &lt;layout&gt; name</code> </p>
-<p>  新建一个模板为layout，名称为name的文章。layout通常为post。</p>
-<p>  文章为MarkDown格式，icarus默认支持KaTeX和MatJax两种latex公式渲染。</p>
-</li>
-<li><p>可以为文章添加FrontMatter属性：</p>
-  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: article-name</span><br><span class="line">date: YYYY-MM-DD HH:MM:SS</span><br><span class="line">tags: </span><br><span class="line">- Tag-1</span><br><span class="line">- Tag-2</span><br><span class="line">categories:</span><br><span class="line">- Cate-1</span><br><span class="line">toc: true</span><br><span class="line">cover: path_to_image</span><br><span class="line">thumbnail: path_to_image</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<p>  其中cover和thumbnail的图片路径从source开始。cover图片路径为blog&#x2F;source&#x2F;cover&#x2F;XXX.png时候，FrontMatter属性为<code>cover: cover/XXX.png</code>。</p>
-</li>
-<li><p>另外还可以自定义修改网站样式，修改_config.icarus.yml中参数，具体可以参考Hexo-Icarus官方网站教程。</p>
-</li>
-<li><p>还可以直接修改icarus源代码自定义样式和功能，如栏宽，目录锁定等等。具体可以参考<a target="_blank" rel="noopener" href="https://www.alphalxy.com/2019/03/customize-icarus/">博客</a></p>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="Github-Pages部署"><a href="#Github-Pages部署" class="headerlink" title="Github-Pages部署"></a>Github-Pages部署</h2><ul>
-<li><p>安装hexo-deployer</p>
-<p>  <code>npm install hexo-deployer-git --save</code></p>
-</li>
-<li><p>在<code>blog\_config.yml</code>中修改deployer部分代码</p>
-  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">type: git</span><br><span class="line">repository: https://github.com/username/username.github.io</span><br><span class="line">branch: master</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>执行<code>hexo clean &amp;&amp; hexo deploy</code></p>
-</li>
-<li><p>浏览<code>username.github.io</code>检查网站是否正常运作</p>
-</li>
-</ul>
-<h2 id="设置私人域名"><a href="#设置私人域名" class="headerlink" title="设置私人域名"></a>设置私人域名</h2><ul>
-<li><p>github repo页面 <code>Settings</code> - <code>Pages</code> - <code>Custom domain</code> 设置你的个人域名</p>
-</li>
-<li><p>域名管理网站DNS页面，增加CNAME项目，解析到<code>username.github.io</code></p>
-</li>
-<li><p>为了防止每次hexo deploy时丢失CNAME，可以在blog&#x2F;source&#x2F;目录下创建一个名称为CNAME的文件，将个人域名填入。</p>
-</li>
-</ul>
-</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/2024/04/11/ISP-Pipeline-Notes(3)/"><img class="fill" src="/gallery/covers/camera_midjounery.png" alt="ISP-Pipeline-Notes(3)"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2024-04-11T02:37:52.000Z" title="2024/4/11 10:37:52">2024-04-11</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-04-11T11:14:34.813Z" title="2024/4/11 19:14:34">2024-04-11</time></span><span class="level-item"><a class="link-muted" href="/categories/ISP/">ISP</a></span><span class="level-item">42 minutes read (About 6276 words)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2024/04/11/ISP-Pipeline-Notes(3)/">ISP-Pipeline-Notes(3)</a></p><div class="content"><h2 id="LTM-局部色调映射"><a href="#LTM-局部色调映射" class="headerlink" title="LTM 局部色调映射"></a>LTM 局部色调映射</h2><h3 id="HDR显示"><a href="#HDR显示" class="headerlink" title="HDR显示"></a>HDR显示</h3><p>显示设备的动态范围 ＜ HDR 成像结果的动态范围，对于一般的显示设备来说，HDR 成像结果仍然是高动态范围，比如说 4000：1，但一般显示设备达不到这么高的动态显示范围，可能只有 2^8&#x3D;256 的动态范围，所以，需要压缩动态范围（粗略理解成对比度吧），同时要保留细节。</p>
+</ul></div><a class="article-more button is-small is-size-7" href="/2024/04/12/hexo-github-pages%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/#more">Read more</a></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/2024/04/11/ISP-Pipeline-Notes(3)/"><img class="fill" src="/gallery/covers/camera_midjounery.png" alt="ISP-Pipeline-Notes(3)"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2024-04-11T02:37:52.000Z" title="2024/4/11 10:37:52">2024-04-11</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-04-11T11:14:34.813Z" title="2024/4/11 19:14:34">2024-04-11</time></span><span class="level-item"><a class="link-muted" href="/categories/ISP/">ISP</a></span><span class="level-item">42 minutes read (About 6276 words)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2024/04/11/ISP-Pipeline-Notes(3)/">ISP-Pipeline-Notes(3)</a></p><div class="content"><h2 id="LTM-局部色调映射"><a href="#LTM-局部色调映射" class="headerlink" title="LTM 局部色调映射"></a>LTM 局部色调映射</h2><h3 id="HDR显示"><a href="#HDR显示" class="headerlink" title="HDR显示"></a>HDR显示</h3><p>显示设备的动态范围 ＜ HDR 成像结果的动态范围，对于一般的显示设备来说，HDR 成像结果仍然是高动态范围，比如说 4000：1，但一般显示设备达不到这么高的动态显示范围，可能只有 2^8&#x3D;256 的动态范围，所以，需要压缩动态范围（粗略理解成对比度吧），同时要保留细节。</p>
 <p>常用的解决办法有两类——第一类是全局的动态范围压缩方法，使用类 S 曲线，如 Reinhard、ACES 等，像素的调整只和像素本身的灰度值有关系，这种方法速度快、直观、有效避免光晕和色调逆转，但是容易破坏图像的白平衡、局部丢失细节；第二类是局部的动态范围压缩方法，像素的调整和邻域的亮度分布有关系，局部方法可以呈现保留更多的细节，但是计算十分耗时、容易引入噪声且可能生成光晕。</p>
 <h3 id="LTM算法"><a href="#LTM算法" class="headerlink" title="LTM算法"></a>LTM算法</h3><p>经典算法之一就是源于 2002年的 《Fast Bilateral Filtering for the Display of High-Dynamic-Range Images》，基于快速双边滤波的高动态范围压缩方法。</p>
 <p>基本思路是，使用滤波等手段将 HDR 图像分解成基础层（base）和细节层（detail），对基础层做对比度压缩，压缩之后的基础层再和原来的细节层相加，得到保留了细节信息的低动态范围图像。如下图</p>
