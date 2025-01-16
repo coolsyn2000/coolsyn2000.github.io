@@ -27,7 +27,7 @@ My research interest includes neural machine translation and computer vision. I 
 
 # 📝 Publications 
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">OLEN 2023</div><img src='images/non_invasive_color_imaging.jpg' alt="sym" width="500" height="300"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">OLEN 2023</div><img src='images/non_invasive_color_imaging.jpg' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [Non-invasive color imaging through scattering medium under broadband illumination](https://www.sciencedirect.com/science/article/abs/pii/S0143816623001446))
