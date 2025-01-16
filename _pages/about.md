@@ -19,6 +19,13 @@ redirect_from:
 
 Welcome to my academic homepage!
 
+# 📖 Educations
+- *2021.09 - 2024.06*, Master of Engineering, Electronic Information, **Xi'an Jiaotong Univerisity**. Mentor: [Prof. Jianbin Liu](https://gr.xjtu.edu.cn/web/liujianbin/3)  
+- *2017.09 - 2021.06*, Bachelor of Engineering, Electrical Engineering and Automation, **Huazhong University of Science and Technology**  
+
+# 💻 Experience
+- *2024.07 - 2025.02(now)*, **OPPO Research Institute**, China. Advisor: [Prof. Lei Zhang](https://www4.comp.polyu.edu.hk/~cslzhang/)
+- *2023.03 - 2023.05*, **Vivo Mobile Communication Co., Ltd.**, China
 
 # 🔥 News
 - None
@@ -30,7 +37,7 @@ Welcome to my academic homepage!
 
 [Non-invasive multispectral scattering imaging via OTF retrieval.](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=iG1k-ecAAAAJ&citation_for_view=iG1k-ecAAAAJ:UeHWp8X0CEIC)
 
-Zhuoran Xi, **Yunong Sun**, Huafan Zhang, Jianbin Liu, Hui Chen, Yu Zhou, Yuchen He, Huaibin Zheng, KuaiKuai Yu, Zhuo Xu, Yuan Yuan
+Zhuoran Xi, **<u>Yunong Sun</u>**, Huafan Zhang, Jianbin Liu, Hui Chen, Yu Zhou, Yuchen He, Huaibin Zheng, KuaiKuai Yu, Zhuo Xu, Yuan Yuan
 
 [**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=iG1k-ecAAAAJ&citation_for_view=iG1k-ecAAAAJ:UeHWp8X0CEIC) <strong><span class='show_paper_citations' data='iG1k-ecAAAAJ:UeHWp8X0CEIC'></span></strong>
 - Here, we demonstrate a non-invasive multispectral scattering imaging method via optical transfer function (OTF) retrieval. The method uses multi-frame speckles to non-invasively retrieve the OTF of imaging system.
@@ -43,7 +50,7 @@ Zhuoran Xi, **Yunong Sun**, Huafan Zhang, Jianbin Liu, Hui Chen, Yu Zhou, Yuchen
 
 [Non-invasive color imaging through scattering medium under broadband illumination](https://www.sciencedirect.com/science/article/abs/pii/S0143816623001446))
 
-**Yunong Sun**, Jianbin Liu, Hui Chen, Zhuoran Xi, Yu Zhou, Yuchen He, Huaibin Zheng, Zhuo Xu, Yuan Yuan
+**<u>Yunong Sun</u>**, Jianbin Liu, Hui Chen, Zhuoran Xi, Yu Zhou, Yuchen He, Huaibin Zheng, Zhuo Xu, Yuan Yuan
 
 [**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=iG1k-ecAAAAJ&citation_for_view=iG1k-ecAAAAJ:d1gkVwhDpl0C) <strong><span class='show_paper_citations' data='iG1k-ecAAAAJ:d1gkVwhDpl0C'></span></strong>
 - Here, we propose a method for retrieving the optical transfer function with several speckle frames within memory effect range to image under broadband illumination. The method can be applied to image amplitude and colored objects under white LED illumination.
@@ -51,12 +58,3 @@ Zhuoran Xi, **Yunong Sun**, Huafan Zhang, Jianbin Liu, Hui Chen, Yu Zhou, Yuchen
 </div>
 </div>
 
-
-# 📖 Educations
-- *2021.09 - 2024.06*, Master of Engineering, Electronic Information, Xi'an Jiaotong Univerisity  
-- *2017.09 - 2021.06*, Bachelor of Engineering, Electrical Engineering and Automation, Huazhong University of Science and Technology  
-
-
-# 💻 Experience
-- *2024.07 - 2025.02(now)*, OPPO Research Institute, China.
-- *2023.03 - 2023.05*, Vivo Mobile Communication Co., Ltd., China
