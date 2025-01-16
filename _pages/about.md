@@ -17,7 +17,7 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. Suspendisse condimentum, libero vel tempus mattis, risus risus vulputate libero, elementum fermentum mi neque vel nisl. Maecenas facilisis maximus dignissim. Curabitur mattis vulputate dui, tincidunt varius libero luctus eu. Mauris mauris nulla, scelerisque eget massa id, tincidunt congue felis. Sed convallis tempor ipsum rhoncus viverra. Pellentesque nulla orci, accumsan volutpat fringilla vitae, maximus sit amet tortor. Aliquam ultricies odio ut volutpat scelerisque. Donec nisl nisl, porttitor vitae pharetra quis, fringilla sed mi. Fusce pretium dolor ut aliquam consequat. Cras volutpat, tellus accumsan mattis molestie, nisl lacus tempus massa, nec malesuada tortor leo vel quam. Aliquam vel ex consectetur, vehicula leo nec, efficitur eros. Donec convallis non urna quis feugiat.
+Welcome to my academic homepage!
 
 
 # 🔥 News
@@ -34,7 +34,6 @@ Zhuoran Xi, **Yunong Sun**, Huafan Zhang, Jianbin Liu, Hui Chen, Yu Zhou, Yuchen
 
 [**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=iG1k-ecAAAAJ&citation_for_view=iG1k-ecAAAAJ:UeHWp8X0CEIC) <strong><span class='show_paper_citations' data='iG1k-ecAAAAJ:UeHWp8X0CEIC'></span></strong>
 - Here, we demonstrate a non-invasive multispectral scattering imaging method via optical transfer function (OTF) retrieval. The method uses multi-frame speckles to non-invasively retrieve the OTF of imaging system.
-- Similar to the spectral filter property of PSF in the space domain, OTF at different wavelengths can be employed to filter and reconstruct the multispectral information of mixed speckle in the frequency domain.
 - Our method overcomes the need for invasive measurements and is applicable to a wide range of scenarios for static and dynamic objects, providing a new approach to multispectral imaging.
 </div>
 </div>
