@@ -23,7 +23,7 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 author:
   name             : "Yunong Sun(孙雨农)"
   avatar           : "images/android-chrome-512x512.png"
-  bio              : "Lorem ipsum College"
+  bio              : "A image algorithm engineer, focusing on image-restoration model on smartphone"
   location         : "Shenzhen, China"
   employer         : "OPPO Research Institude"
   pubmed           : 
@@ -37,7 +37,7 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           : # e.g., "github username"
+  github           : "coolsyn2000"
   google_plus      :
   keybase          :
   instagram        :
