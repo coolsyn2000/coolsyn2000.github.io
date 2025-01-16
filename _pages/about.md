@@ -25,6 +25,20 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet 
 
 # 📝 Publications 
 
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">OLEN 2025</div><img src='images/multi-spectrum-imaging.png' alt="sym" width="500" height="300"></div></div>
+<div class='paper-box-text' markdown="1">
+
+[Non-invasive multispectral scattering imaging via OTF retrieval.](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=iG1k-ecAAAAJ&citation_for_view=iG1k-ecAAAAJ:UeHWp8X0CEIC)
+
+Zhuoran Xi, **Yunong Sun**, Huafan Zhang, Jianbin Liu, Hui Chen, Yu Zhou, Yuchen He, Huaibin Zheng, KuaiKuai Yu, Zhuo Xu, Yuan Yuan
+
+[**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=iG1k-ecAAAAJ&citation_for_view=iG1k-ecAAAAJ:UeHWp8X0CEIC) <strong><span class='show_paper_citations' data='iG1k-ecAAAAJ:UeHWp8X0CEIC'></span></strong>
+- Here, we demonstrate a non-invasive multispectral scattering imaging method via optical transfer function (OTF) retrieval. The method uses multi-frame speckles to non-invasively retrieve the OTF of imaging system.
+- Similar to the spectral filter property of PSF in the space domain, OTF at different wavelengths can be employed to filter and reconstruct the multispectral information of mixed speckle in the frequency domain.
+- Our method overcomes the need for invasive measurements and is applicable to a wide range of scenarios for static and dynamic objects, providing a new approach to multispectral imaging.
+</div>
+</div>
+
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">OLEN 2023</div><img src='images/non-invasive-color-imaging.png' alt="sym" width="500" height="300"></div></div>
 <div class='paper-box-text' markdown="1">
 
@@ -38,7 +52,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet 
 </div>
 </div>
 
-- Xi, Z., **Sun, Y.**, Zhang, H., Liu, J., Chen, H., Zhou, Y., He, Y., Zheng, H., Yu, K., Xu, Z. and Yuan, Y., 2025. [Non-invasive multispectral scattering imaging via OTF retrieval.](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=iG1k-ecAAAAJ&citation_for_view=iG1k-ecAAAAJ:UeHWp8X0CEIC) Optics and Lasers in Engineering, 184, p.108635.
 
 # 📖 Educations
 - *2021.09 - 2024.06*, Master of Engineering, Electronic Information, Xi'an Jiaotong Univerisity  
