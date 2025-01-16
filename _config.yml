@@ -21,8 +21,8 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 
 # Site Author
 author:
-  name             : "Yunong Sun(孙雨农)"
-  avatar           : "images/avatar.png"
+  name             : "Yunong Sun"
+  avatar           : "images/avatar_anime.png"
   bio              : "A image algorithm engineer, focusing on image-restoration model on smartphone"
   location         : "Shenzhen, China"
   employer         : "OPPO Research Institude"
