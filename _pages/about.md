@@ -20,48 +20,18 @@ redirect_from:
 Welcome to my academic homepage!
 
 # 📖 Educations
-<div class='paper-box'>
-<div class='paper-box-image'><div><img src='images/Xian_Jiaotong_University.png' alt="sym" width="200" height="200"></div></div>
-<div class='paper-box-text' markdown="1">
--**Time:** *Sept. 2021 - June. 2024*
--**Degree:** Master of Engineering in Electronic Information
--**Xi'an Jiaotong Univerisity**. Mentor: [Prof. Jianbin Liu](https://gr.xjtu.edu.cn/web/liujianbin/3)
-</div>
-</div>
-
-<div class='paper-box'>
-<div class='paper-box-image'><div><img src='images/Hustseals.png' alt="sym" width="200" height="200"></div></div>
-<div class='paper-box-text' markdown="1">
--**Time:** *Sept. 2017 - June 2021*
--**Degree:** Bachelor of Engineering in Electrical Engineering and Automation
--**Huazhong University of Science and Technology**, School of Electrical and Electronic Engineering
-</div>
-</div>
+- *2021.09 - 2024.06*, Master of Engineering, Electronic Information, **Xi'an Jiaotong Univerisity**. Mentor: [Prof. Jianbin Liu](https://gr.xjtu.edu.cn/web/liujianbin/3)  
+- *2017.09 - 2021.06*, Bachelor of Engineering, Electrical Engineering and Automation, **Huazhong University of Science and Technology** 
 
 # 💻 Experience
-<div class='paper-box'>
-<div class='paper-box-image'><div><img src='images/1024px-OPPO_Logo_wiki.png' alt="sym" width="200" height="200"></div></div>
-<div class='paper-box-text' markdown="1">
-- **Time:** *July 2024 - now*
-- **Position:** Image Algorithm Engineer
-- **Ylab, OPPO Res. Ins.**. Advisor: [Prof. Lei Zhang](https://www4.comp.polyu.edu.hk/~cslzhang/)
-</div>
-</div>
-
-<div class='paper-box'>
-<div class='paper-box-image'><div><img src='images/Vivo-Logo.png' alt="sym" width="200" height="200"></div></div>
-<div class='paper-box-text' markdown="1">
--**Time:** *March 2023 - May 2024*
--**Position:** Computer Vision Algorithm Intern
--**Dept. of Image Effect, Vivo Mobile Communication Co., Ltd.**
-</div>
-</div>
+- *2024.07 - now*, algorithm engineer, YLab, **OPPO Research Institute**, China. Advisor: [Prof. Lei Zhang](https://www4.comp.polyu.edu.hk/~cslzhang/)
+- *2023.03 - 2023.05*, algorithm intern, Dept. of Image Effect,**Vivo Mobile Communication Co., Ltd.**, China
 
 # 🔥 News
 - 2024.10, Looking for Ph.D opportunity in Computational Imaging.
 - 2024.07, Joining YLab in OPPO Research Institute as an iamge algorithm engineer.
-# 📝 Publications 
 
+# 📝 Publications 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">OLEN 2025</div><img src='images/multi-spectrum-imaging.png' alt="sym" width="500" height="300"></div></div>
 <div class='paper-box-text' markdown="1">
 
