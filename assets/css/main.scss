@@ -87,45 +87,50 @@
 
 }
 
-.split-box {
+.column-box {
     display: flex;
     justify-content: left;
     align-items: center;
     flex-direction: row;
     flex-wrap: wrap;
     border-bottom: 1px #efefef solid;
-    padding: 2em 0;
+    padding: 2em 0 2em 0;
+    
 
-    .split-box-image {
-        display: flex;
+    .column-box-image{
         justify-content: center;
-        width: 200px; // 设置固定宽度
-        height: 200px; // 设置固定高度
-        order: 1;
-
+        display: flex;
+        width: 100%;
+        order: 2;
         img {
             max-width: 200px;
-            max-height: 200px;
             object-fit: cover;
         }
     }
-
-    .split-box-text {
-        max-width: calc(100% - 200px); // 剩余宽度
-        padding-left: 2em;
-        order: 2;
+    
+    .column-box-text{
+        max-width: 100%;
+        order: 1;
     }
-
+    
     @include breakpoint($medium) {
-        .split-box-image {
-            width: 250px; // 在中等屏幕上调整图像大小
-            height: 250px;
+        .column-box-image{
+            justify-content: left;
+            min-width: 200px;
+            max-width: 40%;
+            order: 1;
+        }
+        
+        .column-box-text{
+            justify-content: left;
+            padding-left: 2em;
+            max-width: 60%;
+            order: 2;
         }
 
-        .split-box-text {
-            max-width: calc(100% - 250px); // 剩余宽度
-        }
     }
+
+
 }
 
 $scroll_offset : 2em;
