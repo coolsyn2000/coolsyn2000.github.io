@@ -23,8 +23,8 @@ Welcome to my academic homepage!
 <div class='split-box'>
 <div class='split-box-image'><div><img src='images/Xian_Jiaotong_University.png' alt="sym" width="200" height="200"></div></div>
 <div class='split-box-text' markdown="1">
-- Time: *Sept. 2021 - June. 2024*
-- Degree: Master of Engineering in Electronic Information
+- **Time:** *Sept. 2021 - June. 2024*
+- **Degree:** Master of Engineering in Electronic Information
 - **Xi'an Jiaotong Univerisity**. Mentor: [Prof. Jianbin Liu](https://gr.xjtu.edu.cn/web/liujianbin/3)
 </div>
 </div>
