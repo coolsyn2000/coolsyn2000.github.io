@@ -35,7 +35,7 @@ Welcome to my academic homepage!
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">OLEN 2025</div><img src='images/multi-spectrum-imaging.png' alt="sym" width="500" height="300"></div></div>
 <div class='paper-box-text' markdown="1">
 
-[Non-invasive multispectral scattering imaging via OTF retrieval.](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=iG1k-ecAAAAJ&citation_for_view=iG1k-ecAAAAJ:UeHWp8X0CEIC)
+[Non-invasive multispectral scattering imaging via OTF retrieval.](https://www.sciencedirect.com/science/article/abs/pii/S0143816624006134)
 
 Zhuoran Xi, **<u>Yunong Sun</u>**, Huafan Zhang, Jianbin Liu, Hui Chen, Yu Zhou, Yuchen He, Huaibin Zheng, KuaiKuai Yu, Zhuo Xu, Yuan Yuan
 
@@ -57,4 +57,9 @@ Zhuoran Xi, **<u>Yunong Sun</u>**, Huafan Zhang, Jianbin Liu, Hui Chen, Yu Zhou,
 - The method based on the mulit-frame speckles provide more reliable results with faster convergence speed than single-shot imaging.
 </div>
 </div>
+
+# 📦 Resources
+- Implementation of Single-frame Fienup-type Phase Retrieval Algorithm [[Github]](https://github.com/coolsyn2000/Phase-Retrieval-Fienup-Implementation) ![GitHub stars](https://img.shields.io/github/stars/coolsyn2000/Phase-Retrieval-Fienup-Implementation?style=social)
+- Official Implementation of Multi-frame OTF Retrieval Engine Algorithm [[Github]](https://github.com/coolsyn2000/MORE-python-implementation) ![GitHub stars](https://img.shields.io/github/stars/coolsyn2000/MORE-python-implementation?style=social)
+- ISP Parameters Auto-Tuning Scripts [[Github]](https://github.com/coolsyn2000/ISP-AutoTuning) ![GitHub stars](https://img.shields.io/github/stars/coolsyn2000/ISP-AutoTuning?style=social)
 
