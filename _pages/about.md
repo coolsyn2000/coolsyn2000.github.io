@@ -20,18 +20,18 @@ redirect_from:
 Welcome to my academic homepage!
 
 # 📖 Educations
-<div class='paper-box'>
-  <div class='paper-box-image'><div><img src='images/Xian_Jiaotong_University.png' alt="sym" width="200" height="200"></div></div>
-  <div class='paper-box-text' markdown="1">
+<div class='split-box'>
+  <div class='split-box-image'><div><img src='images/Xian_Jiaotong_University.png' alt="sym" width="200" height="200"></div></div>
+  <div class='split-box-text' markdown="1">
 - *Sept. 2021 - June. 2024*
 - Master of Engineering in Electronic Information
 - **Xi'an Jiaotong Univerisity**. Mentor: [Prof. Jianbin Liu](https://gr.xjtu.edu.cn/web/liujianbin/3)
   </div>
 </div>
 
-<div class='paper-box'>
-  <div class='paper-box-image'><div><img src='images/Hustseals.png' alt="sym" width="200" height="200"></div></div>
-  <div class='paper-box-text' markdown="1">
+<div class='split-box'>
+  <div class='split-box-image'><div><img src='images/Hustseals.png' alt="sym" width="200" height="200"></div></div>
+  <div class='split-box-text' markdown="1">
 - *Sept. 2017 - June 2021*
 - Bachelor of Engineering in Electrical Engineering and Automation
 - **Huazhong University of Science and Technology**, School of Electrical and Electronic Engineering
@@ -39,18 +39,18 @@ Welcome to my academic homepage!
 </div>
 
 # 💻 Experience
-<div class='paper-box'>
-  <div class='paper-box-image'><div><img src='images/1024px-OPPO_Logo_wiki.png' alt="sym" width="400" height="200"></div></div>
-  <div class='paper-box-text' markdown="1">
+<div class='split-box'>
+  <div class='split-box-image'><div><img src='images/1024px-OPPO_Logo_wiki.png' alt="sym" width="400" height="200"></div></div>
+  <div class='split-box-text' markdown="1">
 - *July 2024 - now*
 - Image Algorithm Engineer
 - **Ylab, OPPO Res. Ins.**. Advisor: [Prof. Lei Zhang](https://www4.comp.polyu.edu.hk/~cslzhang/)
   </div>
 </div>
 
-<div class='paper-box'>
-  <div class='paper-box-image'><div><img src='images/Vivo-Logo.png' alt="sym" width="400" height="200"></div></div>
-  <div class='paper-box-text' markdown="1">
+<div class='split-box'>
+  <div class='split-box-image'><div><img src='images/Vivo-Logo.png' alt="sym" width="400" height="200"></div></div>
+  <div class='split-box-text' markdown="1">
 - *March 2023 - May 2024*
 - Computer Vision Algorithm Intern
 - **Dept. of Image Effect, Vivo Mobile Communication Co., Ltd.**
