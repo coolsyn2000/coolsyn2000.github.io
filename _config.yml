@@ -6,7 +6,7 @@
 # `jekyll serve`. If you change this file, please restart the server process.
 
 # Site Settings
-title                    : "Academic Pages"
+title                    : "Yunong Sun's Homepage"
 description              : "Personal academic homepages"
 repository               : "coolsyn0/coolsyn2000.github.io"
 google_scholar_stats_use_cdn : true
