@@ -78,52 +78,6 @@
         .paper-box-text{
             justify-content: left;
             padding-left: 2em;
-            max-width: 100%;
-            order: 2;
-        }
-
-    }
-
-
-}
-
-.column-box {
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    border-bottom: 1px #efefef solid;
-    padding: 2em 0 2em 0;
-    
-
-    .column-box-image{
-        justify-content: center;
-        display: flex;
-        width: 100%;
-        order: 2;
-        img {
-            max-width: 200px;
-            object-fit: cover;
-        }
-    }
-    
-    .column-box-text{
-        max-width: 100%;
-        order: 1;
-    }
-    
-    @include breakpoint($medium) {
-        .column-box-image{
-            justify-content: left;
-            min-width: 200px;
-            max-width: 40%;
-            order: 1;
-        }
-        
-        .column-box-text{
-            justify-content: left;
-            padding-left: 2em;
             max-width: 60%;
             order: 2;
         }
