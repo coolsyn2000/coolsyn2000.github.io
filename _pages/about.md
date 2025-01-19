@@ -20,14 +20,17 @@ redirect_from:
 Welcome to my academic homepage!
 
 # 📖 Educations
+
 - *2021.09 - 2024.06*, Master of Engineering, Electronic Information, **Xi'an Jiaotong Univerisity**. Mentor: [Prof. Jianbin Liu](https://gr.xjtu.edu.cn/web/liujianbin/3)  
 - *2017.09 - 2021.06*, Bachelor of Engineering, Electrical Engineering and Automation, **Huazhong University of Science and Technology** 
 
 # 💻 Experience
+
 - *2024.07 - now*, algorithm engineer, YLab, **OPPO Research Institute**, China. Advisor: [Prof. Lei Zhang](https://www4.comp.polyu.edu.hk/~cslzhang/)
 - *2023.03 - 2023.05*, algorithm intern, Dept. of Image Effect,**Vivo Mobile Communication Co., Ltd.**, China
 
 # 🔥 News
+
 - 2024.10, Looking for Ph.D opportunity in Computational Imaging.
 - 2024.07, Joining YLab in OPPO Research Institute as an iamge algorithm engineer.
 
@@ -43,6 +46,7 @@ Zhuoran Xi, **<u>Yunong Sun</u>**, Huafan Zhang, Jianbin Liu, Hui Chen, Yu Zhou,
 [**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=iG1k-ecAAAAJ&citation_for_view=iG1k-ecAAAAJ:UeHWp8X0CEIC) <strong><span class='show_paper_citations' data='iG1k-ecAAAAJ:UeHWp8X0CEIC'></span></strong>
 - Here, we demonstrate a non-invasive multispectral scattering imaging method via optical transfer function (OTF) retrieval. The method uses multi-frame speckles to non-invasively retrieve the OTF of imaging system.
 - Our method overcomes the need for invasive measurements and is applicable to a wide range of scenarios for static and dynamic objects, providing a new approach to multispectral imaging.
+
 </div>
 </div>
 
@@ -56,6 +60,7 @@ Zhuoran Xi, **<u>Yunong Sun</u>**, Huafan Zhang, Jianbin Liu, Hui Chen, Yu Zhou,
 [**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=iG1k-ecAAAAJ&citation_for_view=iG1k-ecAAAAJ:d1gkVwhDpl0C) <strong><span class='show_paper_citations' data='iG1k-ecAAAAJ:d1gkVwhDpl0C'></span></strong>
 - Here, we propose a method for retrieving the optical transfer function with several speckle frames within memory effect range to image under broadband illumination. The method can be applied to image amplitude and colored objects under white LED illumination.
 - The method based on the mulit-frame speckles provide more reliable results with faster convergence speed than single-shot imaging.
+
 </div>
 </div>
 
