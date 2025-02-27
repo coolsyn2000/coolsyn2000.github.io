@@ -7,7 +7,7 @@
 
 # Site Settings
 title                    : "Yunong Sun's Homepage"
-description              : "Personal academic homepages"
+description              : "An image algorithm engineer, focusing on low-level computer vision and image restoration."
 repository               : "coolsyn0/coolsyn2000.github.io"
 google_scholar_stats_use_cdn : true
 
@@ -23,7 +23,7 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 author:
   name             : "Yunong Sun"
   avatar           : "images/avatar_anime.png"
-  bio              : "A image algorithm engineer, focusing on image-restoration model on smartphone"
+  bio              : "Machine-Learning Engineer@OPPO"
   location         : "Shenzhen, China"
   employer         : "OPPO Research Institude"
   pubmed           : 

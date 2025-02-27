@@ -5,5 +5,5 @@
 
 # 💻 Experience
 
-- *2024.07 - now*, algorithm engineer, YLab, **OPPO Research Institute**, China. Advisor: [Prof. Lei Zhang](https://www4.comp.polyu.edu.hk/~cslzhang/)
+- *2024.07 - 2025.04*, algorithm engineer, YLab, **OPPO Research Institute**, China. Advisor: [Prof. Lei Zhang](https://www4.comp.polyu.edu.hk/~cslzhang/)
 - *2023.03 - 2023.05*, algorithm intern, Dept. of Image Effect,**Vivo Mobile Communication Co., Ltd.**, China
