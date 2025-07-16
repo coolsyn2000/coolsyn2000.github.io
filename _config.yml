@@ -8,7 +8,7 @@
 # Site Settings
 title                    : "Yunong Sun's Homepage"
 description              : "Personal Academic Homepage"
-repository               : "coolsyn0/coolsyn2000.github.io"
+repository               : "coolsyn2000/coolsyn2000.github.io"
 google_scholar_stats_use_cdn : true
 
 # google analytics
@@ -22,10 +22,10 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 # Site Author
 author:
   name             : "Yunong Sun"
-  avatar           : "images/avatar_anime.png"
-  bio              : "Incoming Ph.D student @"
-  location         : "Shenzhen, China"
-  employer         : "University of California, Irvine"
+  avatar           : "images/photo.jpg"
+  bio              : "Incoming Ph.D student@UC Irvine"
+  location         : 
+  employer         : 
   pubmed           : 
   googlescholar    : "https://scholar.google.com/citations?user=iG1k-ecAAAAJ&hl=en"
   email            : "coolsyn123@gmail.com"
