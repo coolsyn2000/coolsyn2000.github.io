@@ -1,4 +1,17 @@
 # 📝 Publications 
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Arxiv 2025</div><img src='images/NeOTF.png' alt="sym" width="500" height="300"></div></div>
+<div class='paper-box-text' markdown="1">
+
+[NeOTF: Speckle-Constrained OTF Neural Representation for Non-invasive Imaging through Scattering Medium.](https://arxiv.org/abs/2507.22328)
+
+**<u>Yunong Sun</u>**
+
+[**[Project Page]**](https://github.com/coolsyn2000/NeuralNetwork-PhaseRetrieval) <strong><span class='show_paper_citations' data='iG1k-ecAAAAJ:UeHWp8X0CEIC'></span></strong>
+- We introduce NeOTF, a framework that learns an implicit neural representation of the OTF. By applying multi-frame speckle intensities and Fourier-domain prior, NeOTF robustly retrieves the system's OTF.
+- Both simulations and experiments demonstrate that NeOTF achieves superior accuracy and efficiency over conventional methods, establishing it as a practical solution for real-time scattering imaging.
+
+</div>
+</div>
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">OLEN 2025</div><img src='images/multi-spectrum-imaging.png' alt="sym" width="500" height="300"></div></div>
 <div class='paper-box-text' markdown="1">
@@ -7,7 +20,7 @@
 
 Zhuoran Xi, **<u>Yunong Sun</u>**, Huafan Zhang, Jianbin Liu, Hui Chen, Yu Zhou, Yuchen He, Huaibin Zheng, KuaiKuai Yu, Zhuo Xu, Yuan Yuan
 
-[**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=iG1k-ecAAAAJ&citation_for_view=iG1k-ecAAAAJ:UeHWp8X0CEIC) <strong><span class='show_paper_citations' data='iG1k-ecAAAAJ:UeHWp8X0CEIC'></span></strong>
+~~**[Project Page]**~~
 - Here, we demonstrate a non-invasive multispectral scattering imaging method via optical transfer function (OTF) retrieval. The method uses multi-frame speckles to non-invasively retrieve the OTF of imaging system.
 - Our method overcomes the need for invasive measurements and is applicable to a wide range of scenarios for static and dynamic objects, providing a new approach to multispectral imaging.
 
@@ -21,7 +34,7 @@ Zhuoran Xi, **<u>Yunong Sun</u>**, Huafan Zhang, Jianbin Liu, Hui Chen, Yu Zhou,
 
 **<u>Yunong Sun</u>**, Jianbin Liu, Hui Chen, Zhuoran Xi, Yu Zhou, Yuchen He, Huaibin Zheng, Zhuo Xu, Yuan Yuan
 
-[**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=iG1k-ecAAAAJ&citation_for_view=iG1k-ecAAAAJ:d1gkVwhDpl0C) <strong><span class='show_paper_citations' data='iG1k-ecAAAAJ:d1gkVwhDpl0C'></span></strong>
+[**[Project Page]**](https://github.com/coolsyn2000/MORE-python-implementation) 
 - Here, we propose a method for retrieving the optical transfer function with several speckle frames within memory effect range to image under broadband illumination. The method can be applied to image amplitude and colored objects under white LED illumination.
 - The method based on the mulit-frame speckles provide more reliable results with faster convergence speed than single-shot imaging.
 
