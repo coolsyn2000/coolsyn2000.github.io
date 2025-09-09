@@ -7,7 +7,7 @@
 **<u>Yunong Sun</u>**
 
 [**[Project Page]**](https://github.com/coolsyn2000/NeuralNetwork-PhaseRetrieval) <strong><span class='show_paper_citations' data='iG1k-ecAAAAJ:UeHWp8X0CEIC'></span></strong>
-- We introduce NeOTF, a framework that learns an implicit neural representation of the OTF. By applying multi-frame speckle intensities and Fourier-domain prior, NeOTF robustly retrieves the system's OTF.
+- We introduce NeOTF, a framework that learns an implicit neural representation of the OTF. By applying multi-frame speckle intensities and Fourier-domain prior, NeOTF robustly retrieves the system's OTF with high fidelity and efficiency.
 - Both simulations and experiments demonstrate that NeOTF achieves superior accuracy and efficiency over conventional methods, establishing it as a practical solution for real-time scattering imaging.
 
 </div>
