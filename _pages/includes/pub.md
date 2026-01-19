@@ -1,14 +1,14 @@
 # 📝 Publications 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Arxiv 2025</div><img src='images/NeOTF.png' alt="sym" width="500" height="300"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Arxiv 2025</div><img src='https://github.com/Xia-Research-Lab/NeOTF/blob/main/assets/algorithm-pipeline.png' alt="sym" width="500" height="300"></div></div>
 <div class='paper-box-text' markdown="1">
 
-[NeOTF: Speckle-Constrained OTF Neural Representation for Non-invasive Imaging through Scattering Medium.](https://arxiv.org/abs/2507.22328)
+[NeOTF: Guidestar-free neural representation for broadband dynamic imaging through scattering](https://arxiv.org/abs/2507.22328)
 
-**<u>Yunong Sun</u>**
+**<u>Yunong Sun</u>** and Fei Xia.
 
-[**[Project Page]**](https://github.com/coolsyn2000/NeuralNetwork-PhaseRetrieval) <strong><span class='show_paper_citations' data='iG1k-ecAAAAJ:UeHWp8X0CEIC'></span></strong>
+[**[Project Page]**](https://github.com/Xia-Research-Lab/NeOTF) <strong><span class='show_paper_citations' data='iG1k-ecAAAAJ:UeHWp8X0CEIC'></span></strong>
 - We introduce NeOTF, a framework that learns an implicit neural representation of the OTF. By applying multi-frame speckle intensities and Fourier-domain prior, NeOTF robustly retrieves the system's OTF with high fidelity and efficiency.
-- Both simulations and experiments demonstrate that NeOTF achieves superior accuracy and efficiency over conventional methods, establishing it as a practical solution for real-time scattering imaging.
+- Both simulations and experiments demonstrate that NeOTF achieves superior accuracy and efficiency over conventional methods, establishing it as a practical solution for imaging through dynamic scattering with spatio-temporal memory effect.
 
 </div>
 </div>
