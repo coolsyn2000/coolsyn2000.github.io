@@ -1,5 +1,5 @@
 # 📝 Publications 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Arxiv 2025</div><img src='https://github.com/Xia-Research-Lab/NeOTF/blob/main/assets/algorithm-pipeline.png' alt="sym" width="500" height="300"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Arxiv 2025</div><img src='images/neotf.png' alt="sym" width="500" height="300"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [NeOTF: Guidestar-free neural representation for broadband dynamic imaging through scattering](https://arxiv.org/abs/2507.22328)
