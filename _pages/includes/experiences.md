@@ -1,6 +1,7 @@
 # 📖 Educations
 
-- *2021.09 - 2024.06*, Master of Engineering, Electronic Information, **Xi'an Jiaotong Univerisity** <img src='../../images/Xian_Jiaotong_University.png' style='height: 1em;'>. Mentor: [Prof. Jianbin Liu](https://scholar.google.com/citations?user=DXAlCl0AAAAJ&hl=en)  
+- *2025.09 - Present*, Ph.D Student, Electrical Engineering and Computer Sciences, **UC Irvine** <img src='../../images/UCI-logo.png' style='height: 1em;'>. Advisor: [Prof. Fei Xia](https://scholar.google.com/citations?user=lQGcq6MAAAAJ&hl=en)
+- *2021.09 - 2024.06*, Master of Engineering, Electronic Information, **Xi'an Jiaotong Univerisity** <img src='../../images/Xian_Jiaotong_University.png' style='height: 1em;'>. Advisor: [Prof. Jianbin Liu](https://scholar.google.com/citations?user=DXAlCl0AAAAJ&hl=en)  
 - *2017.09 - 2021.06*, Bachelor of Engineering, Electrical Engineering and Automation, **Huazhong University of Science and Technology** <img src='../../images/Hustseals.png' style='height: 1em;'> 
 
 # 💻 Experience
