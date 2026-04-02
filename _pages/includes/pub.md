@@ -1,5 +1,5 @@
 # 📝 Selected Publications 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Under Review</div><img src='images/neotf.png' alt="sym" width="500" height="300"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Adv. Photonics 2026</div><img src='images/neotf.png' alt="sym" width="500" height="300"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [NeOTF: Guidestar-free neural representation for broadband dynamic imaging through scattering](https://arxiv.org/abs/2507.22328)
@@ -14,7 +14,7 @@
 </div>
 
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">OLEN 2023</div><img src='images/non-invasive-color-imaging.png' alt="sym" width="500" height="300"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Opt. Lasers Eng. 2023</div><img src='images/non-invasive-color-imaging.png' alt="sym" width="500" height="300"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [Non-invasive color imaging through scattering medium under broadband illumination](https://www.sciencedirect.com/science/article/abs/pii/S0143816623001446)
