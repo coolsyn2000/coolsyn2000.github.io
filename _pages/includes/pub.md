@@ -8,9 +8,8 @@
 
 [**[Project Page]**](https://github.com/Xia-Research-Lab/NeOTF) <strong><span class='show_paper_citations' data='iG1k-ecAAAAJ:UeHWp8X0CEIC'></span></strong>
 - We introduce NeOTF, a framework that learns an implicit neural representation of the OTF. By applying multi-frame speckle intensities and Fourier-domain prior, NeOTF robustly retrieves the system's OTF with high fidelity and efficiency.
-- Both simulations and experiments demonstrate that NeOTF achieves superior accuracy and efficiency over conventional methods, establishing it as a practical solution for imaging through dynamic scattering via spatio-temporal memory effect.
 
 </div>
 </div>
 
-- ``OLEN 2023`` [Non-invasive color imaging through scattering medium under broadband illumination](https://www.sciencedirect.com/science/article/abs/pii/S0143816623001446), **<u>Yunong Sun</u>**, et al.
+- [OLEN 2023] [Non-invasive color imaging through scattering medium under broadband illumination](https://www.sciencedirect.com/science/article/abs/pii/S0143816623001446), **<u>Yunong Sun</u>**, et al.
