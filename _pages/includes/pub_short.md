@@ -1,3 +1,1 @@
-- ``COL 2024`` [Dynamic imaging through scattering medium under white-light illumination](https://opg.optica.org/col/abstract.cfm?uri=col-22-6-060007), Junyao Lei, Hui Chen, Yuan Yuan, **<u>Yunong Sun</u>**, et al.
-- ``CPB 2024`` [A polarization sensitive interferometer: Delta interferometer](https://iopscience.iop.org/article/10.1088/1674-1056/acf996/meta), Chaoqi Wei, Jianbin Liu, Yifei Dong, **<u>Yunong Sun</u>**, et al.
-- ``JOSA-B 2024`` [Physics of bunching and superbunching in superbunching pseudothermal light](https://opg.optica.org/josab/abstract.cfm?uri=josab-41-7-1599), Yifei Dong, Jianbin Liu, Zhuoran Xi, Huafan Zhang, **<u>Yunong Sun</u>**, et al.
+- ``OLEN 2023`` [Non-invasive color imaging through scattering medium under broadband illumination](https://www.sciencedirect.com/science/article/abs/pii/S0143816623001446), **<u>Yunong Sun</u>**, et al.

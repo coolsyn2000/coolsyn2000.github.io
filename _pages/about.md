@@ -23,5 +23,6 @@ redirect_from:
 
 {% include_relative includes/pub.md %}
 
-{% include_relative includes/resources.md %}
+{% include_relative includes/repo.md %}
+
 
