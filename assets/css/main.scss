@@ -117,23 +117,29 @@ h1:before, .anchor:before {
     padding-top: 0;
 }
 
-.page--full {
-    float: none;
-    width: 100%;
-    margin-left: 0;
-    margin-right: 0;
-
-    @include breakpoint($large) {
-        @include span(12 of 12);
-        padding-left: 0;
-        padding-right: 0;
-    }
+#main.main--full {
+    padding-left: .5em;
+    padding-right: .5em;
 }
 
-.page--post .page__inner-wrap {
-    max-width: 860px;
-    margin-left: auto;
-    margin-right: auto;
+#main.main--full .page--full {
+    clear: both;
+    float: none !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+#main.main--full .page--full .page__inner-wrap,
+#main.main--full .page--full .page__content,
+#main.main--full .page--full .page__meta {
+    clear: both;
+    float: none !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
 }
 
 .blog-lang-switch {
