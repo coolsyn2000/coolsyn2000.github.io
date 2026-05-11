@@ -1,28 +1,28 @@
 ---
 layout: blog
-permalink: /blog/
-title: "Blog"
-excerpt: "Notes and essays."
+permalink: /blog/zh/
+title: "博客"
+excerpt: "中文笔记与文章。"
 author_profile: false
-lang: en
+lang: zh
 ---
 
-# Blog
+# 博客
 
 <nav class="blog-lang-switch" aria-label="Language switch">
-  <span>English</span>
-  <a href="{{ '/blog/zh/' | relative_url }}">中文</a>
+  <a href="{{ '/blog/' | relative_url }}">English</a>
+  <span>中文</span>
 </nav>
 
 {% if site.posts.size > 0 %}
 <div class="blog-list">
   {% for post in site.posts %}
   {% assign post_lang = post.lang | default: 'en' %}
-  {% if post_lang == 'en' %}
+  {% if post_lang == 'zh' %}
     {% include blog-card.html post=post %}
   {% endif %}
   {% endfor %}
 </div>
 {% else %}
-No posts yet.
+暂无文章。
 {% endif %}

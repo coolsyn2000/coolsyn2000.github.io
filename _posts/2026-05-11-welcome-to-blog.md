@@ -1,6 +1,11 @@
 ---
 title: "Welcome to the Blog"
 date: 2026-05-11
+lang: en
+ref: welcome-to-blog
+excerpt: "A short sample post showing Markdown writing, preview images, and LaTeX equation rendering."
+image: /images/photo.jpg
+image_alt: "Yunong Sun"
 tags:
   - notes
   - math

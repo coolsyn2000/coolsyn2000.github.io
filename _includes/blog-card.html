@@ -1,0 +1,57 @@
+{% assign card_post = include.post | default: post %}
+{% assign preview_image = card_post.image | default: card_post.thumbnail %}
+{% if preview_image == nil or preview_image == "" %}
+  {% if card_post.content contains '![' %}
+    {% assign image_parts = card_post.content | split: '![' %}
+    {% assign first_image = image_parts[1] %}
+    {% if first_image contains '](' %}
+      {% assign image_url_parts = first_image | split: '](' %}
+      {% assign image_url_part = image_url_parts[1] %}
+      {% assign preview_image = image_url_part | split: ')' | first | split: ' ' | first | remove: '"' | remove: "'" %}
+    {% endif %}
+  {% elsif card_post.content contains '<img' and card_post.content contains 'src="' %}
+    {% assign image_parts = card_post.content | split: '<img' %}
+    {% assign first_image = image_parts[1] %}
+    {% assign image_url_parts = first_image | split: 'src="' %}
+    {% assign image_url_part = image_url_parts[1] %}
+    {% assign preview_image = image_url_part | split: '"' | first %}
+  {% endif %}
+{% endif %}
+
+{% if preview_image and preview_image != "" %}
+  {% unless preview_image contains '://' %}
+    {% assign preview_image_first = preview_image | slice: 0 %}
+    {% unless preview_image_first == '/' %}
+      {% assign preview_image = preview_image | prepend: '/' %}
+    {% endunless %}
+    {% assign preview_image = preview_image | relative_url %}
+  {% endunless %}
+{% endif %}
+
+<article class="blog-card">
+  {% if preview_image and preview_image != "" %}
+  <a class="blog-card__image" href="{{ card_post.url | relative_url }}" aria-label="{{ card_post.title }}">
+    <img src="{{ preview_image }}" alt="{% if card_post.image_alt %}{{ card_post.image_alt }}{% else %}{{ card_post.title }}{% endif %}">
+  </a>
+  {% endif %}
+  <div class="blog-card__body">
+    <h2 class="archive__item-title">
+      <a href="{{ card_post.url | relative_url }}">{{ card_post.title }}</a>
+    </h2>
+    <p class="page__meta">
+      <time datetime="{{ card_post.date | date_to_xmlschema }}">{{ card_post.date | date: "%B %-d, %Y" }}</time>
+      {% if card_post.tags and card_post.tags.size > 0 %}
+      <span class="blog-post__tags">
+        {% for tag in card_post.tags %}
+        <span>{{ tag }}</span>
+        {% endfor %}
+      </span>
+      {% endif %}
+    </p>
+    {% if card_post.excerpt %}
+    <div class="archive__item-excerpt">
+      {{ card_post.excerpt | strip_html | truncatewords: 46 }}
+    </div>
+    {% endif %}
+  </div>
+</article>
