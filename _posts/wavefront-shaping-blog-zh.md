@@ -1,8 +1,8 @@
 ---
-title: "欢迎来到博客"
+title: "浅谈波前整形：以乱制乱"
 date: 2026-05-11
 lang: zh
-ref: welcome-to-blog
+ref: wavefront-shaping-blog
 permalink: /blog/zh/wavefront-shaping-blog/
 excerpt: "浅谈波前整形：以乱治乱"
 image: https://picx.zhimg.com/v2-15140b06f0da2e4e1ab8c013b20cec39_1440w.jpg
