@@ -2,7 +2,6 @@
 title: "A Brief Introduction to Wavefront Shaping: Controlling Disorder with Disorder"
 date: 2026-05-11
 lang: en
-ref: wavefront-shaping-blog
 excerpt: "A brief introduction to wavefront shaping, from adaptive optics and guide stars to computational WFS, NeuWS, and NeOTF."
 image: https://picx.zhimg.com/v2-15140b06f0da2e4e1ab8c013b20cec39_1440w.jpg
 image_alt: "Wavefront shaping"

@@ -14,13 +14,11 @@ lang: zh
   <span>中文</span>
 </nav>
 
-{% if site.posts.size > 0 %}
+{% assign blog_posts = site.blog_zh | sort: "date" | reverse %}
+{% if blog_posts.size > 0 %}
 <div class="blog-list">
-  {% for post in site.posts %}
-  {% assign post_lang = post.lang | default: 'en' %}
-  {% if post_lang == 'zh' %}
-    {% include blog-card.html post=post %}
-  {% endif %}
+  {% for post in blog_posts %}
+  {% include blog-card.html post=post %}
   {% endfor %}
 </div>
 {% else %}

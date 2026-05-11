@@ -19,37 +19,13 @@ layout: compress
         <meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">
         <div class="page__inner-wrap">
           {% assign current_lang = page.lang | default: 'en' %}
-          {% if current_lang == 'zh' %}
-            {% assign alt_lang = 'en' %}
-          {% else %}
-            {% assign alt_lang = 'zh' %}
-          {% endif %}
-          {% assign alt_post = nil %}
-          {% if page.ref %}
-            {% for candidate in site.posts %}
-              {% assign candidate_lang = candidate.lang | default: 'en' %}
-              {% if candidate.ref == page.ref and candidate_lang == alt_lang %}
-                {% assign alt_post = candidate %}
-                {% break %}
-              {% endif %}
-            {% endfor %}
-          {% endif %}
-
           <header>
             <nav class="blog-lang-switch" aria-label="Language switch">
               {% if current_lang == 'en' %}
                 <span>English</span>
-                {% if alt_post %}
-                  <a href="{{ alt_post.url | relative_url }}">中文</a>
-                {% else %}
-                  <a href="{{ '/blog/zh/' | relative_url }}">中文</a>
-                {% endif %}
+                <a href="{{ '/blog/zh/' | relative_url }}">中文</a>
               {% else %}
-                {% if alt_post %}
-                  <a href="{{ alt_post.url | relative_url }}">English</a>
-                {% else %}
-                  <a href="{{ '/blog/' | relative_url }}">English</a>
-                {% endif %}
+                <a href="{{ '/blog/' | relative_url }}">English</a>
                 <span>中文</span>
               {% endif %}
             </nav>

@@ -14,13 +14,11 @@ lang: en
   <a href="{{ '/blog/zh/' | relative_url }}">中文</a>
 </nav>
 
-{% if site.posts.size > 0 %}
+{% assign blog_posts = site.blog_en | sort: "date" | reverse %}
+{% if blog_posts.size > 0 %}
 <div class="blog-list">
-  {% for post in site.posts %}
-  {% assign post_lang = post.lang | default: 'en' %}
-  {% if post_lang == 'en' %}
-    {% include blog-card.html post=post %}
-  {% endif %}
+  {% for post in blog_posts %}
+  {% include blog-card.html post=post %}
   {% endfor %}
 </div>
 {% else %}
