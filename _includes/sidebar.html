@@ -4,7 +4,15 @@
   {% if page.sidebar %}
     {% for s in page.sidebar %}
       {% if s.image %}
-        <img src= "{{ s.image }}" alt="{% if s.image_alt %}{{ s.image_alt }}{% endif %}">
+        {% assign sidebar_image = s.image %}
+        {% unless sidebar_image contains '://' %}
+          {% assign sidebar_image_first = sidebar_image | slice: 0 %}
+          {% unless sidebar_image_first == '/' %}
+            {% assign sidebar_image = sidebar_image | prepend: '/' %}
+          {% endunless %}
+          {% assign sidebar_image = sidebar_image | relative_url %}
+        {% endunless %}
+        <img src="{{ sidebar_image }}" alt="{% if s.image_alt %}{{ s.image_alt }}{% endif %}">
       {% endif %}
       {% if s.title %}<h3>{{ s.title }}</h3>{% endif %}
       {% if s.text %}{{ s.text | markdownify }}{% endif %}
