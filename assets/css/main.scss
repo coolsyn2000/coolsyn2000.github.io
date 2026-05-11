@@ -107,3 +107,31 @@ h1:before, .anchor:before {
     background-color: #00369f;
     font-size: .8em;
 }
+
+.blog-list__item {
+    padding: 1.25em 0;
+    border-bottom: 1px solid $border-color;
+}
+
+.blog-list__item:first-child {
+    padding-top: 0;
+}
+
+.blog-post__tags {
+    margin-left: .75em;
+
+    span {
+        display: inline-block;
+        margin-right: .35em;
+        padding: .1em .45em;
+        border: 1px solid $border-color;
+        border-radius: 3px;
+        color: mix(#fff, $gray, 15%);
+        font-size: .85em;
+    }
+}
+
+.MathJax_Display {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
