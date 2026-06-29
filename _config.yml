@@ -105,15 +105,6 @@ lsi: false
 excerpt_separator: "\n\n"
 incremental: false
 
-# Collections
-collections:
-  blog_en:
-    output: true
-    permalink: /blog/:name/
-  blog_zh:
-    output: true
-    permalink: /blog/zh/:name/
-
 
 # Markdown Processing
 kramdown:
@@ -135,24 +126,6 @@ defaults:
     values:
       layout: default
       author_profile: true
-  # _blog_en
-  - scope:
-      path: ""
-      type: blog_en
-    values:
-      layout: post
-      author_profile: false
-      math: true
-      lang: en
-  # _blog_zh
-  - scope:
-      path: ""
-      type: blog_zh
-    values:
-      layout: post
-      author_profile: false
-      math: true
-      lang: zh
 
 
 # Sass/SCSS

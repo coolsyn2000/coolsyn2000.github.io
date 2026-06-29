@@ -5,6 +5,6 @@
 - *2017.09 - 2021.06*, Bachelor of Engineering, Electrical Engineering and Automation, **Huazhong University of Science and Technology** <img src='../../images/Hustseals.png' style='height: 1em;'> 
 
 # 💻 Experience
-- *2026.06 - 2026.09*，Research Scientist Intern, PICO, **Bytedance** <img src='../../images/Bytedance-Logo.png' style='height: 1em;'>, San Jose, United States.
+- *2026.06 - 2026.09*, Research Scientist Intern, **PICO-Lab, Bytedance** <img src='../../images/Bytedance-Logo.png' style='height: 1em;'>, San Jose, United States.
 - *2024.07 - 2025.04*, Machine Learning Engineer, YLab, **OPPO Research Institute** <img src='../../images/Oppo-Logo.png' style='height: 1em;'>, China. Advisor: [Prof. Lei Zhang](https://www4.comp.polyu.edu.hk/~cslzhang/)
 - *2023.03 - 2023.05*, Machine Learning Intern, **VIVO Dept. of Image Effect** <img src='../../images/Vivo-Logo.png' style='height: 1em;'>, China.
