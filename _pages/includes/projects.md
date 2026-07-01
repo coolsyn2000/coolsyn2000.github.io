@@ -1,7 +1,6 @@
 # 📦 Projects
 
 ## 🔬 Computational Imaging
-
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">Adv. Photonics 2026</div><img src='images/neotf.png' alt="sym" width="500" height="300"></div></div>
 <div class='paper-box-text' markdown="1">
 
@@ -16,7 +15,6 @@
 </div>
 
 ## 📷 Computational Photography
-
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">Github</div><img src='images/Open-AISP.png' alt="Open-AISP result" width="500" height="300"></div></div>
 <div class='paper-box-text' markdown="1">
 
