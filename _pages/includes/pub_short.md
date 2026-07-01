@@ -1,1 +1,0 @@
-- ``OLEN 2023`` [Non-invasive color imaging through scattering medium under broadband illumination](https://www.sciencedirect.com/science/article/abs/pii/S0143816623001446), **<u>Yunong Sun</u>**, et al.
