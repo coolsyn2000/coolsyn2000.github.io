@@ -1,7 +1,7 @@
 # 📦 Projects
 
 ## 🔬 Computational Imaging
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Adv. Photonics 2026</div><img src='images/NeOTF.png' alt="sym" width="500" height="300"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Adv. Photonics 2026</div><img src='images/neotf.png' alt="sym" width="500" height="300"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [NeOTF: Guidestar-free neural representation for broadband dynamic imaging through scattering](https://www.spiedigitallibrary.org/journals/advanced-photonics/volume-8/issue-03/036007/NeOTF--guidestar-free-neural-representation-for-broadband-dynamic-imaging/10.1117/1.AP.8.3.036007.full)
