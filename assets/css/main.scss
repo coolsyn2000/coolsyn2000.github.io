@@ -55,8 +55,15 @@
         display: flex;
         width: 100%;
         order: 2;
+
+        > div {
+            max-width: 100%;
+        }
+
         img {
-            max-width: 400px;
+            display: block;
+            max-width: 100%;
+            height: auto;
             box-shadow: 3px 3px 6px #888;
             object-fit: cover;
         }
@@ -70,15 +77,19 @@
     @include breakpoint($medium) {
         .paper-box-image{
             justify-content: left;
-            min-width: 200px;
+            flex: 0 1 auto;
+            width: auto;
+            min-width: 0;
             max-width: 40%;
             order: 1;
         }
-        
+
         .paper-box-text{
             justify-content: left;
+            flex: 1 1 0;
+            min-width: 0;
             padding-left: 2em;
-            max-width: 60%;
+            max-width: none;
             order: 2;
         }
 
