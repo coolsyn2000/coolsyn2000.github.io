@@ -73,22 +73,24 @@
         max-width: 100%;
         order: 1;
     }
-    
+
     @include breakpoint($medium) {
+        display: grid;
+        grid-template-columns: fit-content(40%) minmax(0, 1fr);
+        column-gap: 1em;
+
         .paper-box-image{
             justify-content: left;
-            flex: 0 1 auto;
             width: auto;
             min-width: 0;
-            max-width: 40%;
+            max-width: none;
             order: 1;
         }
 
         .paper-box-text{
             justify-content: left;
-            flex: 1 1 0;
             min-width: 0;
-            padding-left: 2em;
+            padding-left: 0;
             max-width: none;
             order: 2;
         }
