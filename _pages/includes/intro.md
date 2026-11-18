@@ -1,3 +1,3 @@
 <span class='anchor' id='about-me'></span>
 
-I am a Ph.D. student at **[Fei Xia Research Lab](https://www.xia-lab.com/) @ UC, Irvine**, with research interests in **Computational Imaging**, particularly in imaging through scattering media and signal process. I have earned both my Bachelor's and Master's degrees from Huazhong University of Science and Technology (HUST) and Xi'an Jiaotong University (XJTU), respectively. I have previously interned and worked full-time at **OPPO** and **VIVO** as Machine Learning Engineer, where I was responsible for developing **AI denoising models for smartphones.**
+I am a Ph.D. Candidate at **[Fei Xia Research Lab](https://www.xia-lab.com/) @ UC, Irvine**, with research interests in **Computational Imaging & Photography**, particularly in imaging through scattering, image restoration and generative models. I have worked in ByteDance, OPPO and VIVO on computational photography and ISP algorithms.

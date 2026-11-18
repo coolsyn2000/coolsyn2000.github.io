@@ -1,7 +1,22 @@
 # 📦 Projects
 
 ## 🔬 Computational Imaging
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Adv. Photonics 2026</div><img src='images/neotf.png' alt="sym" width="300" height="250"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Preprint</div><img src='images/NeuSPI.gif' alt="sym" width="300" height="180"></div></div>
+<div class='paper-box-text' markdown="1">
+
+[NeuSPI: Neural Single-Pixel Imaging Turning Motion into Information with
+Sub-Pixel Precision](https://github.com/Xia-Research-Lab/NeuSPI)
+
+**<u>Y Sun</u>**, J Seo and F Xia.
+
+[**[Project Page]**](https://github.com/Xia-Research-Lab/NeuSPI)
+- We introduce NeuSPI, a space-time joint reconstruction algorithm with neural representation. It works with motion-resilient imaging, dynamic imaging and pixel super-resolution with motion estimation.
+
+
+</div>
+</div>
+
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Adv. Photonics 2026</div><img src='images/NeOTF.gif' alt="sym" width="300" height="180"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [NeOTF: Guidestar-free neural representation for broadband dynamic imaging through scattering](https://www.spiedigitallibrary.org/journals/advanced-photonics/volume-8/issue-03/036007/NeOTF--guidestar-free-neural-representation-for-broadband-dynamic-imaging/10.1117/1.AP.8.3.036007.full)
@@ -14,8 +29,25 @@
 </div>
 </div>
 
+
+
 ## 📷 Computational Photography
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Github</div><img src='images/Open-AISP.png' alt="Open-AISP result" width="300" height="250"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Preprint</div><img src='images/craw.png' alt="CRAW Figure" width="300" height="180"></div></div>
+<div class='paper-box-text' markdown="1">
+
+[CRAW: Edge-Efficient Joint RAW Compression and Restoration for Smart-Wearable Devices](https://github.com/coolsyn2000/CRAW)
+
+**<u>Y Sun</u>**, S Cheng and F Xia.
+
+[**[Project Page]**](https://github.com/coolsyn2000/CRAW)
+- We proposed an edge-efficient joint RAW restoration and compression for smart-glasses computational photography with distributed compute platform. Efficiency and hardware profiling are evaluated on Snapdragon 8Gen2 and AR1 Gen1 devices.
+
+
+</div>
+</div>
+
+
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Github Repo</div><img src='images/Open-AISP.png' alt="Open-AISP result" width="300" height="180"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [Open-AISP: An open-source AI-ISP pipeline framework for beginners](https://github.com/coolsyn2000/Open-AISP)

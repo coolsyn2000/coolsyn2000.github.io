@@ -40,6 +40,14 @@
 @import "vendor/magnific-popup/magnific-popup";
 @import "print";
 
+.page__content h2:has(+ .paper-box) {
+    margin-bottom: 0.25em;
+
+    + .paper-box {
+        padding-top: 0.25em;
+    }
+}
+
 .paper-box {
     display: flex;
     justify-content: left;
@@ -47,7 +55,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     border-bottom: 1px #efefef solid;
-    padding: 2em 0 2em 0;
+    padding: 1em 0;
     
 
     .paper-box-image{
@@ -64,8 +72,9 @@
             display: block;
             max-width: 100%;
             height: auto;
+            aspect-ratio: var(--project-image-ratio, auto);
             box-shadow: 3px 3px 6px #888;
-            object-fit: cover;
+            object-fit: fill;
         }
     }
     
