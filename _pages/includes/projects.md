@@ -5,7 +5,7 @@
 <div class='paper-box-text' markdown="1">
 
 [NeuSPI: Neural Single-Pixel Imaging Turning Motion into Information with
-Sub-Pixel Precision](https://github.com/Xia-Research-Lab/NeuSPI)
+Sub-Pixel Precision]()
 
 **<u>Y Sun</u>**, J Seo and F Xia.
 
@@ -37,7 +37,7 @@ Sub-Pixel Precision](https://github.com/Xia-Research-Lab/NeuSPI)
 
 [CRAW: Edge-Efficient Joint RAW Compression and Restoration for Smart-Wearable Devices](https://github.com/coolsyn2000/CRAW)
 
-**<u>Y Sun</u>**, S Cheng and F Xia.
+**<u>Y Sun</u>**, S Chen and F Xia.
 
 [**[Project Page]**](https://github.com/coolsyn2000/CRAW)
 - We proposed an edge-efficient joint RAW restoration and compression for smart-glasses computational photography with distributed compute platform. Efficiency and hardware profiling are evaluated on Snapdragon 8Gen2 and AR1 Gen1 devices.
