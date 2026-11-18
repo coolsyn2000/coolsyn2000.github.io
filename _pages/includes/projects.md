@@ -1,4 +1,4 @@
-# 📦 Projects
+# 🔭 Research
 
 ## 🔬 Computational Imaging
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">Preprint</div><img src='images/NeuSPI.gif' alt="sym" width="300" height="180"></div></div>
