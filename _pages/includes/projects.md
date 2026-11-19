@@ -35,7 +35,7 @@ Sub-Pixel Precision]()
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">Preprint</div><img src='images/craw.png' alt="CRAW Figure" width="300" height="180"></div></div>
 <div class='paper-box-text' markdown="1">
 
-[CRAW: Edge-Efficient Joint RAW Compression and Restoration for Smart-Wearable Devices](https://github.com/coolsyn2000/CRAW)
+[CRAW: Edge-Efficient Joint RAW Compression and Restoration for Smart-Wearable Devices](https://arxiv.org/abs/2611.24805)
 
 **<u>Y Sun</u>**, S Chen and F Xia.
 
